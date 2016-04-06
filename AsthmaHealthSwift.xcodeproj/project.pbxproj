@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
+		B4AC68421CB596600094861A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* ViewController.swift */; };
+		B4AC68451CB596600094861A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68431CB596600094861A /* Main.storyboard */; };
+		B4AC68471CB596600094861A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68461CB596600094861A /* Assets.xcassets */; };
+		B4AC684A1CB596600094861A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68481CB596600094861A /* LaunchScreen.storyboard */; };
+		B4AC68551CB596600094861A /* AsthmaHealthSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68541CB596600094861A /* AsthmaHealthSwiftTests.swift */; };
+		B4AC68601CB596600094861A /* AsthmaHealthSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B4AC68511CB596600094861A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4AC68341CB596600094861A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4AC683B1CB596600094861A;
+			remoteInfo = AsthmaHealthSwift;
+		};
+		B4AC685C1CB596600094861A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4AC68341CB596600094861A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4AC683B1CB596600094861A;
+			remoteInfo = AsthmaHealthSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B4AC68411CB596600094861A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B4AC68441CB596600094861A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4AC68461CB596600094861A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4AC68491CB596600094861A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4AC684B1CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4AC68501CB596600094861A /* AsthmaHealthSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHealthSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4AC68541CB596600094861A /* AsthmaHealthSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaHealthSwiftTests.swift; sourceTree = "<group>"; };
+		B4AC68561CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4AC685B1CB596600094861A /* AsthmaHealthSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHealthSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaHealthSwiftUITests.swift; sourceTree = "<group>"; };
+		B4AC68611CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4AC68391CB596600094861A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4AC684D1CB596600094861A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4AC68581CB596600094861A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4AC68331CB596600094861A = {
+			isa = PBXGroup;
+			children = (
+				B4AC683E1CB596600094861A /* AsthmaHealthSwift */,
+				B4AC68531CB596600094861A /* AsthmaHealthSwiftTests */,
+				B4AC685E1CB596600094861A /* AsthmaHealthSwiftUITests */,
+				B4AC683D1CB596600094861A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4AC683D1CB596600094861A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */,
+				B4AC68501CB596600094861A /* AsthmaHealthSwiftTests.xctest */,
+				B4AC685B1CB596600094861A /* AsthmaHealthSwiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4AC683E1CB596600094861A /* AsthmaHealthSwift */ = {
+			isa = PBXGroup;
+			children = (
+				B4AC683F1CB596600094861A /* AppDelegate.swift */,
+				B4AC68411CB596600094861A /* ViewController.swift */,
+				B4AC68431CB596600094861A /* Main.storyboard */,
+				B4AC68461CB596600094861A /* Assets.xcassets */,
+				B4AC68481CB596600094861A /* LaunchScreen.storyboard */,
+				B4AC684B1CB596600094861A /* Info.plist */,
+			);
+			path = AsthmaHealthSwift;
+			sourceTree = "<group>";
+		};
+		B4AC68531CB596600094861A /* AsthmaHealthSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				B4AC68541CB596600094861A /* AsthmaHealthSwiftTests.swift */,
+				B4AC68561CB596600094861A /* Info.plist */,
+			);
+			path = AsthmaHealthSwiftTests;
+			sourceTree = "<group>";
+		};
+		B4AC685E1CB596600094861A /* AsthmaHealthSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */,
+				B4AC68611CB596600094861A /* Info.plist */,
+			);
+			path = AsthmaHealthSwiftUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4AC683B1CB596600094861A /* AsthmaHealthSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4AC68641CB596600094861A /* Build configuration list for PBXNativeTarget "AsthmaHealthSwift" */;
+			buildPhases = (
+				B4AC68381CB596600094861A /* Sources */,
+				B4AC68391CB596600094861A /* Frameworks */,
+				B4AC683A1CB596600094861A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AsthmaHealthSwift;
+			productName = AsthmaHealthSwift;
+			productReference = B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B4AC684F1CB596600094861A /* AsthmaHealthSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4AC68671CB596600094861A /* Build configuration list for PBXNativeTarget "AsthmaHealthSwiftTests" */;
+			buildPhases = (
+				B4AC684C1CB596600094861A /* Sources */,
+				B4AC684D1CB596600094861A /* Frameworks */,
+				B4AC684E1CB596600094861A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4AC68521CB596600094861A /* PBXTargetDependency */,
+			);
+			name = AsthmaHealthSwiftTests;
+			productName = AsthmaHealthSwiftTests;
+			productReference = B4AC68501CB596600094861A /* AsthmaHealthSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B4AC685A1CB596600094861A /* AsthmaHealthSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4AC686A1CB596600094861A /* Build configuration list for PBXNativeTarget "AsthmaHealthSwiftUITests" */;
+			buildPhases = (
+				B4AC68571CB596600094861A /* Sources */,
+				B4AC68581CB596600094861A /* Frameworks */,
+				B4AC68591CB596600094861A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4AC685D1CB596600094861A /* PBXTargetDependency */,
+			);
+			name = AsthmaHealthSwiftUITests;
+			productName = AsthmaHealthSwiftUITests;
+			productReference = B4AC685B1CB596600094861A /* AsthmaHealthSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4AC68341CB596600094861A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = CloudMine;
+				TargetAttributes = {
+					B4AC683B1CB596600094861A = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					B4AC684F1CB596600094861A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = B4AC683B1CB596600094861A;
+					};
+					B4AC685A1CB596600094861A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = B4AC683B1CB596600094861A;
+					};
+				};
+			};
+			buildConfigurationList = B4AC68371CB596600094861A /* Build configuration list for PBXProject "AsthmaHealthSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B4AC68331CB596600094861A;
+			productRefGroup = B4AC683D1CB596600094861A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4AC683B1CB596600094861A /* AsthmaHealthSwift */,
+				B4AC684F1CB596600094861A /* AsthmaHealthSwiftTests */,
+				B4AC685A1CB596600094861A /* AsthmaHealthSwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4AC683A1CB596600094861A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AC684A1CB596600094861A /* LaunchScreen.storyboard in Resources */,
+				B4AC68471CB596600094861A /* Assets.xcassets in Resources */,
+				B4AC68451CB596600094861A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4AC684E1CB596600094861A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4AC68591CB596600094861A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4AC68381CB596600094861A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AC68421CB596600094861A /* ViewController.swift in Sources */,
+				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4AC684C1CB596600094861A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AC68551CB596600094861A /* AsthmaHealthSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4AC68571CB596600094861A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AC68601CB596600094861A /* AsthmaHealthSwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4AC68521CB596600094861A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4AC683B1CB596600094861A /* AsthmaHealthSwift */;
+			targetProxy = B4AC68511CB596600094861A /* PBXContainerItemProxy */;
+		};
+		B4AC685D1CB596600094861A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4AC683B1CB596600094861A /* AsthmaHealthSwift */;
+			targetProxy = B4AC685C1CB596600094861A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B4AC68431CB596600094861A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4AC68441CB596600094861A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B4AC68481CB596600094861A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4AC68491CB596600094861A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4AC68621CB596600094861A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B4AC68631CB596600094861A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4AC68651CB596600094861A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AsthmaHealthSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B4AC68661CB596600094861A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AsthmaHealthSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B4AC68681CB596600094861A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AsthmaHealthSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AsthmaHealthSwift.app/AsthmaHealthSwift";
+			};
+			name = Debug;
+		};
+		B4AC68691CB596600094861A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AsthmaHealthSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AsthmaHealthSwift.app/AsthmaHealthSwift";
+			};
+			name = Release;
+		};
+		B4AC686B1CB596600094861A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AsthmaHealthSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AsthmaHealthSwift;
+			};
+			name = Debug;
+		};
+		B4AC686C1CB596600094861A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AsthmaHealthSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AsthmaHealthSwift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4AC68371CB596600094861A /* Build configuration list for PBXProject "AsthmaHealthSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4AC68621CB596600094861A /* Debug */,
+				B4AC68631CB596600094861A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4AC68641CB596600094861A /* Build configuration list for PBXNativeTarget "AsthmaHealthSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4AC68651CB596600094861A /* Debug */,
+				B4AC68661CB596600094861A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B4AC68671CB596600094861A /* Build configuration list for PBXNativeTarget "AsthmaHealthSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4AC68681CB596600094861A /* Debug */,
+				B4AC68691CB596600094861A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B4AC686A1CB596600094861A /* Build configuration list for PBXNativeTarget "AsthmaHealthSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4AC686B1CB596600094861A /* Debug */,
+				B4AC686C1CB596600094861A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4AC68341CB596600094861A /* Project object */;
+}
