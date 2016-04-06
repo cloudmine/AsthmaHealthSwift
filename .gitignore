@@ -35,3 +35,6 @@ Pods
 
 # Carthage
 Carthage/Build
+
+# App Secrets
+Secrets.swift

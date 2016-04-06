@@ -6,9 +6,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        CMHealth.setAppIdentifier("", appSecret: "")
+        CMHealth.setAppIdentifier(Secrets.AppId, appSecret: Secrets.APIKey)
         return true
     }
 
