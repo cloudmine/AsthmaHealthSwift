@@ -8,13 +8,14 @@ A demo application that showcases the CloudMine [CMHealth iOS SDK](https://githu
 
 This demo application requires [CocoaPods](https://cocoapods.org/) for dependency management.  If you don't already have it, install the `cocoapods` gem:
 
-```
-#> sudo gem install cocoapods
+```bash
+sudo gem install cocoapods
 ```
 
-Then you can proceed to configure and build the project:
+Then you can proceed to clone, configure and build the project:
 
 ```bash
+git clone https://github.com/cloudmine/AsthmaHealthSwift.git
 cd AsthmaHealthSwift/
 cp AsthmaHealthSwift/SupportingFiles/Secrets.swift-Template AsthmaHealthSwift/SupportingFiles/Secrets.swift
 pod install
