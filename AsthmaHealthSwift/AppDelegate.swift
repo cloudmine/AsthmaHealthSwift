@@ -1,4 +1,5 @@
 import UIKit
+import CMHealth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,6 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        CMHealth.setAppIdentifier("", appSecret: "")
         return true
     }
 
