@@ -4,12 +4,37 @@ import CMHealth
 class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var joinButton: UIButton!
+    private var consentResult: ORKTaskResult? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         joinButton.setBorder(width: 1.0, corderRadius: 4.0)
         removeNavigationBarDropShadow()
+    }
+}
+
+// MARK: Private
+extension OnboardingViewController {
+
+    private func signup(email email: String, password: String) {
+        CMHUser.currentUser().signUpWithEmail(email, password: password) { signupError in
+            if let signupError = signupError {
+                print(signupError.localizedDescription) // TODO: Real error handling
+                return
+            }
+
+            print("Signup Successfull")
+
+            CMHUser.currentUser().uploadUserConsent(self.consentResult, withCompletion: { (consent, uploadError) in
+                guard let _ = consent else {
+                    print("Error uploading consent: \(uploadError?.localizedDescription)")
+                    return
+                }
+
+                print("Consent Upload Successful")
+            })
+        }
     }
 }
 
@@ -30,7 +55,7 @@ extension OnboardingViewController {
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
-        guard let _ = presentedViewController as? ORKTaskViewController else {
+        guard presentedViewController == taskViewController else {
             return
         }
 
@@ -40,6 +65,7 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
             return
         }
 
+        consentResult = taskViewController.result
         let signupVC = CMHAuthViewController.signupViewController()
         signupVC.delegate = self
         presentViewController(signupVC, animated: true, completion: nil)
@@ -50,7 +76,12 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
 extension OnboardingViewController: CMHAuthViewDelegate {
     func authViewOfType(authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
-
+        switch authType {
+        case .Signup:
+            signup(email: email, password: password)
+        case .Login:
+            break
+        }
     }
 
     func authViewCancelledType(authType: CMHAuthType) {
