@@ -57,6 +57,9 @@
                                         <exclude reference="Zhc-ru-Pn1"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="didPressJoin:" destination="Hcx-2m-Sx3" eventType="touchUpInside" id="xNc-Vf-eut"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqY-7h-4oe">
                                 <rect key="frame" x="225" y="498" width="150" height="30"/>
