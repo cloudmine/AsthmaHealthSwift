@@ -125,6 +125,9 @@
                     <navigationItem key="navigationItem" id="ckd-oB-LQI">
                         <barButtonItem key="backBarButtonItem" title="  " id="hBJ-ci-ldK"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="joinButton" destination="2R4-HO-EIm" id="Tsc-mq-Ghc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooN-PG-bej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,8 @@
 		B4271D9B1CB6CACD00AA035F /* UIViewController+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */; };
 		B4271D9D1CB6D94200AA035F /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4271D9C1CB6D94200AA035F /* Consent.swift */; };
 		B4271D9F1CB6ECB400AA035F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4271D9E1CB6ECB300AA035F /* Localizable.strings */; };
+		B4271DA11CB6EFD300AA035F /* UIColor+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4271DA01CB6EFD300AA035F /* UIColor+AHS.swift */; };
+		B4271DA31CB6F0CF00AA035F /* UIButton+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4271DA21CB6F0CF00AA035F /* UIButton+AHS.swift */; };
 		B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42A506A1CB5A8BC00156CCB /* Secrets.swift */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
 		B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* OnboardingViewController.swift */; };
@@ -44,6 +46,8 @@
 		B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AHS.swift"; sourceTree = "<group>"; };
 		B4271D9C1CB6D94200AA035F /* Consent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consent.swift; sourceTree = "<group>"; };
 		B4271D9E1CB6ECB300AA035F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B4271DA01CB6EFD300AA035F /* UIColor+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AHS.swift"; sourceTree = "<group>"; };
+		B4271DA21CB6F0CF00AA035F /* UIButton+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AHS.swift"; sourceTree = "<group>"; };
 		B42A506A1CB5A8BC00156CCB /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */,
+				B4271DA01CB6EFD300AA035F /* UIColor+AHS.swift */,
+				B4271DA21CB6F0CF00AA035F /* UIButton+AHS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -383,7 +389,9 @@
 				B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */,
 				B4271D9B1CB6CACD00AA035F /* UIViewController+AHS.swift in Sources */,
 				B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */,
+				B4271DA31CB6F0CF00AA035F /* UIButton+AHS.swift in Sources */,
 				B4271D9D1CB6D94200AA035F /* Consent.swift in Sources */,
+				B4271DA11CB6EFD300AA035F /* UIColor+AHS.swift in Sources */,
 				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
