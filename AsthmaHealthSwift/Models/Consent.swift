@@ -68,7 +68,7 @@ private extension Consent {
     }
 
     static var data: ORKConsentSection {
-        return section(withType: .DataUse, title: nil, summary: DataSummary, content: DataContent)
+        return section(withType: .DataGathering, title: nil, summary: DataSummary, content: DataContent)
     }
 
     static func section(withType type:ORKConsentSectionType, title:String?, summary:String?, content:String?) -> ORKConsentSection {
