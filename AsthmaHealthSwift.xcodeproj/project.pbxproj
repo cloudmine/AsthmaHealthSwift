@@ -99,6 +99,20 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		B4271D981CB6C01800AA035F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B4271D991CB6C08900AA035F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B42A50691CB5A42800156CCB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +148,10 @@
 		B4AC683E1CB596600094861A /* AsthmaHealthSwift */ = {
 			isa = PBXGroup;
 			children = (
+				B4271D981CB6C01800AA035F /* Models */,
 				B4271D8C1CB6BCF100AA035F /* Views */,
 				B4271D971CB6BE3C00AA035F /* ViewControllers */,
+				B4271D991CB6C08900AA035F /* Extensions */,
 				B42A50691CB5A42800156CCB /* SupportingFiles */,
 			);
 			path = AsthmaHealthSwift;
