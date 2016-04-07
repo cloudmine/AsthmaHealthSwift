@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		59C7C452633506E5CB6AA264 /* Pods_AsthmaHealthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976865F88E9E80BE1B344868 /* Pods_AsthmaHealthSwift.framework */; };
+		B4271D8F1CB6BD2E00AA035F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4271D911CB6BD2E00AA035F /* Onboarding.storyboard */; };
+		B4271D941CB6BD6100AA035F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4271D961CB6BD6100AA035F /* Launch.storyboard */; };
 		B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42A506A1CB5A8BC00156CCB /* Secrets.swift */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
 		B4AC68421CB596600094861A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* ViewController.swift */; };
-		B4AC68451CB596600094861A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68431CB596600094861A /* Main.storyboard */; };
 		B4AC68471CB596600094861A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68461CB596600094861A /* Assets.xcassets */; };
-		B4AC684A1CB596600094861A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68481CB596600094861A /* LaunchScreen.storyboard */; };
 		B4AC68551CB596600094861A /* AsthmaHealthSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68541CB596600094861A /* AsthmaHealthSwiftTests.swift */; };
 		B4AC68601CB596600094861A /* AsthmaHealthSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */; };
 /* End PBXBuildFile section */
@@ -38,13 +38,13 @@
 /* Begin PBXFileReference section */
 		7757310D976C583FD51DB4BE /* Pods-AsthmaHealthSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthSwift/Pods-AsthmaHealthSwift.release.xcconfig"; sourceTree = "<group>"; };
 		976865F88E9E80BE1B344868 /* Pods_AsthmaHealthSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsthmaHealthSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4271D901CB6BD2E00AA035F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		B4271D951CB6BD6100AA035F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		B42A506A1CB5A8BC00156CCB /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AC68411CB596600094861A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B4AC68441CB596600094861A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4AC68461CB596600094861A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B4AC68491CB596600094861A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4AC684B1CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4AC68501CB596600094861A /* AsthmaHealthSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHealthSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC68541CB596600094861A /* AsthmaHealthSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaHealthSwiftTests.swift; sourceTree = "<group>"; };
@@ -81,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4271D8C1CB6BCF100AA035F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4271D961CB6BD6100AA035F /* Launch.storyboard */,
+				B4AC68461CB596600094861A /* Assets.xcassets */,
+				B4271D911CB6BD2E00AA035F /* Onboarding.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B42A50691CB5A42800156CCB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,12 +125,10 @@
 		B4AC683E1CB596600094861A /* AsthmaHealthSwift */ = {
 			isa = PBXGroup;
 			children = (
+				B4271D8C1CB6BCF100AA035F /* Views */,
 				B42A50691CB5A42800156CCB /* SupportingFiles */,
 				B4AC683F1CB596600094861A /* AppDelegate.swift */,
 				B4AC68411CB596600094861A /* ViewController.swift */,
-				B4AC68431CB596600094861A /* Main.storyboard */,
-				B4AC68461CB596600094861A /* Assets.xcassets */,
-				B4AC68481CB596600094861A /* LaunchScreen.storyboard */,
 			);
 			path = AsthmaHealthSwift;
 			sourceTree = "<group>";
@@ -267,9 +275,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4AC684A1CB596600094861A /* LaunchScreen.storyboard in Resources */,
 				B4AC68471CB596600094861A /* Assets.xcassets in Resources */,
-				B4AC68451CB596600094861A /* Main.storyboard in Resources */,
+				B4271D8F1CB6BD2E00AA035F /* Onboarding.storyboard in Resources */,
+				B4271D941CB6BD6100AA035F /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,20 +388,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B4AC68431CB596600094861A /* Main.storyboard */ = {
+		B4271D911CB6BD2E00AA035F /* Onboarding.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B4AC68441CB596600094861A /* Base */,
+				B4271D901CB6BD2E00AA035F /* Base */,
 			);
-			name = Main.storyboard;
+			name = Onboarding.storyboard;
 			sourceTree = "<group>";
 		};
-		B4AC68481CB596600094861A /* LaunchScreen.storyboard */ = {
+		B4271D961CB6BD6100AA035F /* Launch.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B4AC68491CB596600094861A /* Base */,
+				B4271D951CB6BD6100AA035F /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Launch.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
