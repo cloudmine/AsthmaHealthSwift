@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Onboarding View Controller-->
         <scene sceneID="baK-FC-7CW">
             <objects>
-                <viewController id="PN6-Oh-cd3" sceneMemberID="viewController">
+                <viewController id="PN6-Oh-cd3" customClass="OnboardingViewController" customModule="AsthmaHealthSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3mW-Jr-WKl"/>
                         <viewControllerLayoutGuide type="bottom" id="Aab-xd-Uea"/>

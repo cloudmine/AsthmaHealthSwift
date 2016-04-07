@@ -12,7 +12,7 @@
 		B4271D941CB6BD6100AA035F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4271D961CB6BD6100AA035F /* Launch.storyboard */; };
 		B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42A506A1CB5A8BC00156CCB /* Secrets.swift */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
-		B4AC68421CB596600094861A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* ViewController.swift */; };
+		B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* OnboardingViewController.swift */; };
 		B4AC68471CB596600094861A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68461CB596600094861A /* Assets.xcassets */; };
 		B4AC68551CB596600094861A /* AsthmaHealthSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68541CB596600094861A /* AsthmaHealthSwiftTests.swift */; };
 		B4AC68601CB596600094861A /* AsthmaHealthSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */; };
@@ -43,7 +43,7 @@
 		B42A506A1CB5A8BC00156CCB /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4AC68411CB596600094861A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B4AC68411CB596600094861A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B4AC68461CB596600094861A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4AC684B1CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4AC68501CB596600094861A /* AsthmaHealthSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHealthSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +91,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B4271D971CB6BE3C00AA035F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4AC68411CB596600094861A /* OnboardingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		B42A50691CB5A42800156CCB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,9 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				B4271D8C1CB6BCF100AA035F /* Views */,
+				B4271D971CB6BE3C00AA035F /* ViewControllers */,
 				B42A50691CB5A42800156CCB /* SupportingFiles */,
 				B4AC683F1CB596600094861A /* AppDelegate.swift */,
-				B4AC68411CB596600094861A /* ViewController.swift */,
 			);
 			path = AsthmaHealthSwift;
 			sourceTree = "<group>";
@@ -350,7 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4AC68421CB596600094861A /* ViewController.swift in Sources */,
+				B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */,
 				B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */,
 				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
 			);
