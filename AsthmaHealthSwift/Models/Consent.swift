@@ -31,7 +31,9 @@ private extension Consent {
     }
 
     static func reviewStep(document doc:ORKConsentDocument) -> ORKConsentReviewStep {
-        return ORKConsentReviewStep(identifier: "RevId", signature: doc.signatures?.first, inDocument: doc)
+        let step = ORKConsentReviewStep(identifier: "RevId", signature: doc.signatures?.first, inDocument: doc)
+        step.reasonForConsent = ConsentReason
+        return step
     }
 }
 
@@ -41,8 +43,11 @@ private extension Consent {
 
     static func document() -> ORKConsentDocument {
         let document = ORKConsentDocument()
+
+        document.htmlReviewContent = ReviewContent
         document.addSignature(signature)
         document.sections = sections
+
         return document
     }
 
@@ -83,6 +88,9 @@ private extension Consent {
 // MARK: Localized Strings
 
 private extension Consent {
+
+    static let ReviewContent = NSLocalizedString("ACHConsentReviewContent", comment:"")
+    static let ConsentReason = NSLocalizedString("ACMConsentTaskReason", comment: "");
 
     static let InstitutionShortName = NSLocalizedString("ACMInstitutionNameShortText", comment: "")
     static let InstitutionLongName  = NSLocalizedString("ACMInstitutionNameLongText", comment: "")
