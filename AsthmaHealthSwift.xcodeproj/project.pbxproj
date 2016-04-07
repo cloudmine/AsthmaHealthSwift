@@ -102,8 +102,9 @@
 		B42A50691CB5A42800156CCB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				B4AC684B1CB596600094861A /* Info.plist */,
+				B4AC683F1CB596600094861A /* AppDelegate.swift */,
 				B42A506A1CB5A8BC00156CCB /* Secrets.swift */,
+				B4AC684B1CB596600094861A /* Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -136,7 +137,6 @@
 				B4271D8C1CB6BCF100AA035F /* Views */,
 				B4271D971CB6BE3C00AA035F /* ViewControllers */,
 				B42A50691CB5A42800156CCB /* SupportingFiles */,
-				B4AC683F1CB596600094861A /* AppDelegate.swift */,
 			);
 			path = AsthmaHealthSwift;
 			sourceTree = "<group>";
