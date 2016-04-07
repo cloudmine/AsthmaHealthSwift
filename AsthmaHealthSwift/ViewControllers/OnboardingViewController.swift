@@ -30,6 +30,34 @@ extension OnboardingViewController {
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        guard let _ = presentedViewController as? ORKTaskViewController else {
+            return
+        }
+
+        dismissViewControllerAnimated(true, completion: nil)
+
+        guard case .Completed = reason else {
+            return
+        }
+
+        let signupVC = CMHAuthViewController.signupViewController()
+        signupVC.delegate = self
+        presentViewController(signupVC, animated: true, completion: nil)
+    }
+}
+
+// MARK: CMHAuthViewDelegate
+
+extension OnboardingViewController: CMHAuthViewDelegate {
+    func authViewOfType(authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
+
+    }
+
+    func authViewCancelledType(authType: CMHAuthType) {
+        guard let _ = presentedViewController as? CMHAuthViewController else {
+            return
+        }
+
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
