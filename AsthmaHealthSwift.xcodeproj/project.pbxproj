@@ -10,6 +10,7 @@
 		59C7C452633506E5CB6AA264 /* Pods_AsthmaHealthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976865F88E9E80BE1B344868 /* Pods_AsthmaHealthSwift.framework */; };
 		B4271D8F1CB6BD2E00AA035F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4271D911CB6BD2E00AA035F /* Onboarding.storyboard */; };
 		B4271D941CB6BD6100AA035F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4271D961CB6BD6100AA035F /* Launch.storyboard */; };
+		B4271D9B1CB6CACD00AA035F /* UIViewController+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */; };
 		B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42A506A1CB5A8BC00156CCB /* Secrets.swift */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
 		B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* OnboardingViewController.swift */; };
@@ -40,6 +41,7 @@
 		976865F88E9E80BE1B344868 /* Pods_AsthmaHealthSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsthmaHealthSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4271D901CB6BD2E00AA035F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		B4271D951CB6BD6100AA035F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
+		B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AHS.swift"; sourceTree = "<group>"; };
 		B42A506A1CB5A8BC00156CCB /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		B4271D991CB6C08900AA035F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */,
+				B4271D9B1CB6CACD00AA035F /* UIViewController+AHS.swift in Sources */,
 				B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */,
 				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
 			);
@@ -520,6 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AsthmaHealthSwift/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,6 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AsthmaHealthSwift/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealthSwift.AsthmaHealthSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
