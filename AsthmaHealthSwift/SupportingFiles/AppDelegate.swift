@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if CMHUser.currentUser().isLoggedIn {
             print("Logged in as \(CMHUser.currentUser())")
-            load(storyboard: "MainPanel")
+            loadMainPanel()
         } else {
-            load(storyboard: "Onboarding")
+            loadOnboarding()
         }
 
         return true
@@ -44,7 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
 
-    func load(storyboard name: String) {
+    func loadOnboarding() {
+        load(storyboard: "Onboarding")
+    }
+
+    func loadMainPanel() {
+        load(storyboard: "MainPanel")
+    }
+
+    private func load(storyboard name: String) {
         let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()

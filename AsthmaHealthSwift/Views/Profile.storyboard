@@ -29,7 +29,7 @@
         <!--Profile-->
         <scene sceneID="CvO-kp-gOU">
             <objects>
-                <viewController id="HfZ-S0-HHU" sceneMemberID="viewController">
+                <viewController id="HfZ-S0-HHU" customClass="ProfileViewController" customModule="AsthmaHealthSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ejg-jF-pef"/>
                         <viewControllerLayoutGuide type="bottom" id="Yij-ZR-VVC"/>
@@ -84,6 +84,9 @@
                                                         <exclude reference="mvj-bn-4aK"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="didPressLogOut:" destination="HfZ-S0-HHU" eventType="touchUpInside" id="EM3-6k-YzR"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for trying the CloudMine Demo ResearchKit app. To learn more about the CloudMine Connected Health Cloud you can" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="sWn-jK-TeI" userLabel="Thanks Label">
                                                 <rect key="frame" x="30" y="237" width="540" height="36"/>
