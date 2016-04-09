@@ -24,6 +24,7 @@
 		B4AC68601CB596600094861A /* AsthmaHealthSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */; };
 		B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADC1CB827810047C57E /* ProfileViewController.swift */; };
 		B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADE1CB887320047C57E /* Utilities.swift */; };
+		B4F14AE11CB8899B0047C57E /* String+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AE01CB8899B0047C57E /* String+AHS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		B4AC68611CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4F14ADC1CB827810047C57E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B4F14ADE1CB887320047C57E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		B4F14AE01CB8899B0047C57E /* String+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AHS.swift"; sourceTree = "<group>"; };
 		E452BB0FF8857FE8A483DA36 /* Pods-AsthmaHealthSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthSwift/Pods-AsthmaHealthSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */,
 				B4271DA01CB6EFD300AA035F /* UIColor+AHS.swift */,
 				B4271DA21CB6F0CF00AA035F /* UIButton+AHS.swift */,
+				B4F14AE01CB8899B0047C57E /* String+AHS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */,
 				B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */,
 				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
+				B4F14AE11CB8899B0047C57E /* String+AHS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

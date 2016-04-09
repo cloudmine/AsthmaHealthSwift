@@ -20,13 +20,13 @@ extension OnboardingViewController {
     private func signup(email email: String, password: String) {
         CMHUser.currentUser().signUpWithEmail(email, password: password) { signupError in
             if let signupError = signupError {
-                print(signupError.localizedDescription) // TODO: Real error handling
+                "Error during signup".alert(in: self.presentedViewController, withError:signupError)
                 return
             }
 
             CMHUser.currentUser().uploadUserConsent(self.consentResult, withCompletion: { (consent, uploadError) in
                 guard let _ = consent else {
-                    print("Error uploading consent: \(uploadError?.localizedDescription)")
+                    "Error during signup while uploading consent".alert(in: self.presentedViewController, withError: uploadError)
                     return
                 }
 
@@ -42,7 +42,7 @@ extension OnboardingViewController {
     private func login(email email: String, password: String) {
         CMHUser.currentUser().loginWithEmail(email, password: password) { error in
             if let error = error {
-                print("Error Loging In: \(error.localizedDescription)") // TODO: Real error handling
+                "Error logging in".alert(in: self.presentedViewController, withError: error)
                 return
             }
 

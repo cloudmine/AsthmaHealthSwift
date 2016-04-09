@@ -15,7 +15,7 @@ private extension ProfileViewController {
     @IBAction func didPressLogOut(sender: UIButton) {
         CMHUser.currentUser().logoutWithCompletion { error in
             if let error = error {
-                print("Error Logging Out: \(error.localizedDescription)") // TODO: Real error handling
+                "Error logging out".alert(in: self, withError: error)
                 return
             }
 
