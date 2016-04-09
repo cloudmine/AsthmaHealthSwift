@@ -23,6 +23,7 @@
 		B4AC68551CB596600094861A /* AsthmaHealthSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68541CB596600094861A /* AsthmaHealthSwiftTests.swift */; };
 		B4AC68601CB596600094861A /* AsthmaHealthSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */; };
 		B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADC1CB827810047C57E /* ProfileViewController.swift */; };
+		B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADE1CB887320047C57E /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaHealthSwiftUITests.swift; sourceTree = "<group>"; };
 		B4AC68611CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4F14ADC1CB827810047C57E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B4F14ADE1CB887320047C57E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E452BB0FF8857FE8A483DA36 /* Pods-AsthmaHealthSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthSwift/Pods-AsthmaHealthSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 			children = (
 				B4271D9E1CB6ECB300AA035F /* Localizable.strings */,
 				B4AC683F1CB596600094861A /* AppDelegate.swift */,
+				B4F14ADE1CB887320047C57E /* Utilities.swift */,
 				B42A506A1CB5A8BC00156CCB /* Secrets.swift */,
 				B4AC684B1CB596600094861A /* Info.plist */,
 			);
@@ -403,6 +406,7 @@
 				B4271DA31CB6F0CF00AA035F /* UIButton+AHS.swift in Sources */,
 				B4271D9D1CB6D94200AA035F /* Consent.swift in Sources */,
 				B4271DA11CB6EFD300AA035F /* UIColor+AHS.swift in Sources */,
+				B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */,
 				B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */,
 				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
 			);

@@ -66,6 +66,9 @@
                                 <state key="normal" title="Already Participating?">
                                     <color key="titleColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressLogin:" destination="Hcx-2m-Sx3" eventType="touchUpInside" id="ylz-4S-3Mg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asthma" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDY-V2-ugY">
                                 <rect key="frame" x="260" y="9.5" width="79.5" height="26.5"/>

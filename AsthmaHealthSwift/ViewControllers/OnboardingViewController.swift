@@ -24,16 +24,33 @@ extension OnboardingViewController {
                 return
             }
 
-            print("Signup Successfull")
-
             CMHUser.currentUser().uploadUserConsent(self.consentResult, withCompletion: { (consent, uploadError) in
                 guard let _ = consent else {
                     print("Error uploading consent: \(uploadError?.localizedDescription)")
                     return
                 }
 
-                print("Consent Upload Successful")
+                guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+                    fatalError("Unexpected App Delegate Class")
+                }
+
+                appDelegate.loadMainPanel()
             })
+        }
+    }
+
+    private func login(email email: String, password: String) {
+        CMHUser.currentUser().loginWithEmail(email, password: password) { error in
+            if let error = error {
+                print("Error Loging In: \(error.localizedDescription)") // TODO: Real error handling
+                return
+            }
+
+            guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+                fatalError("Unexpected App Delegate Class")
+            }
+
+            appDelegate.loadMainPanel()
         }
     }
 }
@@ -47,6 +64,13 @@ extension OnboardingViewController {
         consentVC.view.tintColor = UIColor.acmBlueColor()
 
         presentViewController(consentVC, animated: true, completion: nil)
+    }
+
+    @IBAction func didPressLogin(sender: UIButton) {
+        let loginVC = CMHAuthViewController.loginViewController()
+        loginVC.delegate = self
+
+        presentViewController(loginVC, animated: true, completion: nil)
     }
 }
 
@@ -75,12 +99,13 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
 // MARK: CMHAuthViewDelegate
 
 extension OnboardingViewController: CMHAuthViewDelegate {
+
     func authViewOfType(authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
         switch authType {
         case .Signup:
             signup(email: email, password: password)
         case .Login:
-            break
+            login(email: email, password: password)
         }
     }
 

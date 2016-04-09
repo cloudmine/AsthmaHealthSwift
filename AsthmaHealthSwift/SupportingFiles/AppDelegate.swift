@@ -53,9 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func load(storyboard name: String) {
-        let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController()
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
+        onMainThread { 
+            let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController()
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
     }
 }
 
