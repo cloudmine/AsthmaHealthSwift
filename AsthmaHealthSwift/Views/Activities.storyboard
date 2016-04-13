@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="72" id="Fjf-D0-ZV5">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="72" id="Fjf-D0-ZV5" customClass="ActivityCell" customModule="AsthmaHealthSwift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fjf-D0-ZV5" id="j9W-kw-gAG">
@@ -98,6 +98,12 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="completionImage" destination="x0M-B0-Zgh" id="qPu-59-iMt"/>
+                                    <outlet property="frequencyIndicator" destination="qQE-XZ-m0e" id="U7i-0u-qEX"/>
+                                    <outlet property="nameLabel" destination="gQk-P5-V7j" id="rvi-3A-IOH"/>
+                                    <outlet property="questionCountLabel" destination="5Cd-52-dRT" id="uDs-Gf-tes"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

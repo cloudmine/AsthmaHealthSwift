@@ -29,6 +29,8 @@
 		B4F14AE51CBECFCC0047C57E /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE41CBECFCC0047C57E /* Learn.storyboard */; };
 		B4F14AE71CBED5C60047C57E /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE61CBED5C60047C57E /* Activities.storyboard */; };
 		B4F14AEB1CBED6BE0047C57E /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */; };
+		B4F14AED1CBEE0B20047C57E /* SurveyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AEC1CBEE0B20047C57E /* SurveyInfo.swift */; };
+		B4F14AEF1CBEE1AC0047C57E /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AEE1CBEE1AC0047C57E /* ActivityCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		B4F14AE41CBECFCC0047C57E /* Learn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		B4F14AE61CBED5C60047C57E /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
 		B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		B4F14AEC1CBEE0B20047C57E /* SurveyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyInfo.swift; sourceTree = "<group>"; };
+		B4F14AEE1CBEE1AC0047C57E /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		E452BB0FF8857FE8A483DA36 /* Pods-AsthmaHealthSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthSwift/Pods-AsthmaHealthSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,7 @@
 				B4F14AE61CBED5C60047C57E /* Activities.storyboard */,
 				B4F14AE41CBECFCC0047C57E /* Learn.storyboard */,
 				B4271DA61CB8228000AA035F /* Profile.storyboard */,
+				B4F14AEE1CBEE1AC0047C57E /* ActivityCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				B4271D9C1CB6D94200AA035F /* Consent.swift */,
+				B4F14AEC1CBEE0B20047C57E /* SurveyInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,11 +425,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */,
+				B4F14AED1CBEE0B20047C57E /* SurveyInfo.swift in Sources */,
 				B4271D9B1CB6CACD00AA035F /* UIViewController+AHS.swift in Sources */,
 				B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */,
 				B4F14AEB1CBED6BE0047C57E /* ActivitiesViewController.swift in Sources */,
 				B4271DA31CB6F0CF00AA035F /* UIButton+AHS.swift in Sources */,
 				B4271D9D1CB6D94200AA035F /* Consent.swift in Sources */,
+				B4F14AEF1CBEE1AC0047C57E /* ActivityCell.swift in Sources */,
 				B4271DA11CB6EFD300AA035F /* UIColor+AHS.swift in Sources */,
 				B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */,
 				B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */,

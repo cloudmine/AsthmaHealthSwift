@@ -2,6 +2,17 @@ import UIKit
 
 class ActivitiesViewController: UITableViewController {
 
+    private let surveys = [ SurveyInfo(displayName: NSLocalizedString("About You", comment: ""),
+                                            rkIdentifier: "ACMAboutYouSurveyTask",
+                                            frequency: .Daily,
+                                            questionCount: 8),
+
+                            SurveyInfo(displayName: NSLocalizedString("Daily Survey", comment: ""),
+                                            rkIdentifier: "ACMDailySurveyTask",
+                                            frequency: .Weekly,
+                                            questionCount: 8)
+                          ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -16,12 +27,19 @@ extension ActivitiesViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return surveys.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ActivityCell", forIndexPath: indexPath)
-        return cell
+
+        guard let activityCell = cell as? ActivityCell where indexPath.row <= surveys.count else {
+            return cell
+        }
+
+        activityCell.configure(withInfo: surveys[indexPath.row])
+
+        return activityCell
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

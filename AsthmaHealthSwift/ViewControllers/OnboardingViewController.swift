@@ -61,7 +61,7 @@ extension OnboardingViewController {
 
     @IBAction func didPressJoin(sender: UIButton) {
         let consentVC = ORKTaskViewController(task: Consent.Task, restorationData: nil, delegate: self)
-        consentVC.view.tintColor = UIColor.acmBlueColor()
+        consentVC.view.tintColor = UIColor.acmBlue()
 
         presentViewController(consentVC, animated: true, completion: nil)
     }
