@@ -56,6 +56,14 @@ private extension ProfileViewController {
         }
     }
 
+    @IBAction func didPressWeb(sender: UIButton) {
+        guard let cmURL = NSURL(string: "http://cloudmineinc.com") else {
+            return
+        }
+
+        UIApplication.sharedApplication().openURL(cmURL)
+    }
+
     @IBAction func didPressEmail(sender: UIButton) {
         guard let mailViewController = mailViewController else {
             "The mail app is not configured on your device.".alert(in: self)

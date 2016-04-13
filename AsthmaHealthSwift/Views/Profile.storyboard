@@ -117,6 +117,9 @@
                                                         <exclude reference="KFS-WK-0qM"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="didPressWeb:" destination="HfZ-S0-HHU" eventType="touchUpInside" id="zB5-ef-cre"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhY-6h-RIX">
                                                 <rect key="frame" x="42" y="340" width="516" height="44"/>
