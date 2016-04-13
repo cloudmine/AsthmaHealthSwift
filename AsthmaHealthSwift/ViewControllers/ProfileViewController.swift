@@ -3,8 +3,11 @@ import CMHealth
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var logOutButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        logOutButton.setBorder(width: 1.0, corderRadius: 4.0)
     }
 }
 

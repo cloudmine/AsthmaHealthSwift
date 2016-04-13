@@ -25,6 +25,7 @@
 		B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADC1CB827810047C57E /* ProfileViewController.swift */; };
 		B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADE1CB887320047C57E /* Utilities.swift */; };
 		B4F14AE11CB8899B0047C57E /* String+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AE01CB8899B0047C57E /* String+AHS.swift */; };
+		B4F14AE31CBEAEBB0047C57E /* cloudmine-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B4F14ADC1CB827810047C57E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B4F14ADE1CB887320047C57E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B4F14AE01CB8899B0047C57E /* String+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AHS.swift"; sourceTree = "<group>"; };
+		B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloudmine-logo.png"; sourceTree = "<group>"; };
 		E452BB0FF8857FE8A483DA36 /* Pods-AsthmaHealthSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthSwift/Pods-AsthmaHealthSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				B4AC68461CB596600094861A /* Assets.xcassets */,
+				B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */,
 				B4271D911CB6BD2E00AA035F /* Onboarding.storyboard */,
 				B4271DA41CB8222600AA035F /* MainPanel.storyboard */,
 				B4271DA61CB8228000AA035F /* Profile.storyboard */,
@@ -329,6 +332,7 @@
 				B4271DA51CB8222600AA035F /* MainPanel.storyboard in Resources */,
 				B4AC68471CB596600094861A /* Assets.xcassets in Resources */,
 				B4271DA71CB8228000AA035F /* Profile.storyboard in Resources */,
+				B4F14AE31CBEAEBB0047C57E /* cloudmine-logo.png in Resources */,
 				B4271D9F1CB6ECB400AA035F /* Localizable.strings in Resources */,
 				B4271D8F1CB6BD2E00AA035F /* Onboarding.storyboard in Resources */,
 			);
