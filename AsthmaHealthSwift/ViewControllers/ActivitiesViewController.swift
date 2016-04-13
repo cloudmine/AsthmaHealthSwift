@@ -15,6 +15,19 @@ class ActivitiesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+        tableView.addSubview(refresher)
+    }
+}
+
+// MARK: Target-Action
+
+extension ActivitiesViewController {
+
+    func refresh(control: UIRefreshControl) {
+        control.endRefreshing()
     }
 }
 
