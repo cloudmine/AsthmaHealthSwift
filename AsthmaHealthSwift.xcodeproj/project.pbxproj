@@ -27,6 +27,8 @@
 		B4F14AE11CB8899B0047C57E /* String+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AE01CB8899B0047C57E /* String+AHS.swift */; };
 		B4F14AE31CBEAEBB0047C57E /* cloudmine-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */; };
 		B4F14AE51CBECFCC0047C57E /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE41CBECFCC0047C57E /* Learn.storyboard */; };
+		B4F14AE71CBED5C60047C57E /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE61CBED5C60047C57E /* Activities.storyboard */; };
+		B4F14AEB1CBED6BE0047C57E /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		B4F14AE01CB8899B0047C57E /* String+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AHS.swift"; sourceTree = "<group>"; };
 		B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloudmine-logo.png"; sourceTree = "<group>"; };
 		B4F14AE41CBECFCC0047C57E /* Learn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
+		B4F14AE61CBED5C60047C57E /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
+		B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		E452BB0FF8857FE8A483DA36 /* Pods-AsthmaHealthSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthSwift/Pods-AsthmaHealthSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,8 +114,9 @@
 				B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */,
 				B4271D911CB6BD2E00AA035F /* Onboarding.storyboard */,
 				B4271DA41CB8222600AA035F /* MainPanel.storyboard */,
-				B4271DA61CB8228000AA035F /* Profile.storyboard */,
+				B4F14AE61CBED5C60047C57E /* Activities.storyboard */,
 				B4F14AE41CBECFCC0047C57E /* Learn.storyboard */,
+				B4271DA61CB8228000AA035F /* Profile.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			children = (
 				B4AC68411CB596600094861A /* OnboardingViewController.swift */,
 				B4F14ADC1CB827810047C57E /* ProfileViewController.swift */,
+				B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4271DA51CB8222600AA035F /* MainPanel.storyboard in Resources */,
+				B4F14AE71CBED5C60047C57E /* Activities.storyboard in Resources */,
 				B4AC68471CB596600094861A /* Assets.xcassets in Resources */,
 				B4F14AE51CBECFCC0047C57E /* Learn.storyboard in Resources */,
 				B4271DA71CB8228000AA035F /* Profile.storyboard in Resources */,
@@ -414,6 +421,7 @@
 				B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */,
 				B4271D9B1CB6CACD00AA035F /* UIViewController+AHS.swift in Sources */,
 				B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */,
+				B4F14AEB1CBED6BE0047C57E /* ActivitiesViewController.swift in Sources */,
 				B4271DA31CB6F0CF00AA035F /* UIButton+AHS.swift in Sources */,
 				B4271D9D1CB6D94200AA035F /* Consent.swift in Sources */,
 				B4271DA11CB6EFD300AA035F /* UIColor+AHS.swift in Sources */,
