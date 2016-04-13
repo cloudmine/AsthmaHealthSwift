@@ -233,7 +233,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="keQ-1N-AGV"/>
                     <connections>
+                        <outlet property="emailLabel" destination="hBR-lK-SgR" id="rTk-l8-Rmy"/>
                         <outlet property="logOutButton" destination="ioh-IB-pIf" id="Ue3-eZ-tit"/>
+                        <outlet property="nameLabel" destination="gE6-84-N4z" id="d4W-kf-bdi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soP-vk-nB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
