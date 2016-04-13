@@ -15,6 +15,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="TX7-S7-6yS" kind="relationship" relationship="viewControllers" id="jj1-Kc-Y6f"/>
                         <segue destination="ya8-Gf-BmN" kind="relationship" relationship="viewControllers" id="UlB-aF-a3f"/>
                     </connections>
                 </tabBarController>
@@ -26,11 +27,21 @@
         <scene sceneID="uwV-tj-jHP">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="ya8-Gf-BmN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="QAo-IT-0aT"/>
+                    <tabBarItem key="tabBarItem" title="(profile)" id="QAo-IT-0aT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzF-wi-COh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="892" y="452"/>
+        </scene>
+        <!--Learn-->
+        <scene sceneID="eSz-LN-K9J">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Learn" id="TX7-S7-6yS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="(learn)" id="Jud-1j-naw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sds-aW-2qB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="566"/>
         </scene>
     </scenes>
 </document>
