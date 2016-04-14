@@ -31,7 +31,7 @@ private extension Survey.Daily {
     }
 
     static var steps: [ORKStep] {
-        return [daytimeQuestion, nighttimeQuestion, inhalerQuestion]
+        return [daytimeQuestion, nighttimeQuestion, inhalerQuestion, puffsQuestion]
     }
 
     static var daytimeQuestion: ORKQuestionStep {
@@ -53,5 +53,14 @@ private extension Survey.Daily {
                                title: NSLocalizedString("Did you use your quick relief inhaler in the last 24 hours, except before exercise?", comment: ""),
                                text: nil,
                                answer: ORKBooleanAnswerFormat())
+    }
+
+    static var puffsQuestion: ORKQuestionStep {
+        let format = ORKNumericAnswerFormat(style: .Integer, unit: NSLocalizedString("Puffs", comment: ""), minimum: 0, maximum: 20)
+
+        return ORKQuestionStep(identifier: "ACMDailyPuffsQuestion",
+                               title: NSLocalizedString("Except for use before exercise, how many total puffs of your quick relief medicine did you take over the past 24 hours?", comment: ""),
+                               text: nil,
+                               answer: format)
     }
 }
