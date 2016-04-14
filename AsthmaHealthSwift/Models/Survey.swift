@@ -48,7 +48,7 @@ private extension Survey.Daily {
     }
 
     static var steps: [ORKStep] {
-        return [daytimeQuestion, nighttimeQuestion, inhalerQuestion, puffsQuestion, causesQuestion, flowQuestion]
+        return [daytimeQuestion, nighttimeQuestion, inhalerQuestion, puffsQuestion, causesQuestion, flowQuestion, medicineQuestion]
     }
 
     static var daytimeQuestion: ORKQuestionStep {
@@ -93,6 +93,10 @@ private extension Survey.Daily {
                                text: nil,
                                answer: format)
     }
+
+    static var medicineQuestion: ORKQuestionStep {
+        return Survey.textQuestion(withTitle: medicineTitle, surveyId: surveyId, questionId: "Medicine", choiceInfo: medicineChoices)
+    }
 }
 
 // MARK: Daily Survey Strings
@@ -101,8 +105,7 @@ private extension Survey.Daily {
     static let surveyId = "Daily"
 
     static let causesTitle = NSLocalizedString("Did any of the following cause your asthma to get worse today? (check all that apply):", comment: "")
-    static var causesChoices: [(String, String, Bool)] {
-        return [
+    static let causesChoices: [(String, String, Bool)] = [
             (NSLocalizedString("A Cold", comment: ""), "Cold", false),
             (NSLocalizedString("Exercise", comment: ""), "Exercise", false),
             (NSLocalizedString("Being more active than usual (walking, running, climbing stairs)", comment: ""), "Activity", false),
@@ -126,5 +129,12 @@ private extension Survey.Daily {
             (NSLocalizedString("I don't know what triggers my asthma", comment: ""), "DoNotKnow", true),
             (NSLocalizedString("None of these things trigger my asthma", comment: ""), "None", true),
         ]
-    }
+
+    static let medicineTitle = NSLocalizedString("Did you take your asthma control medicine in the last 24 hours?", comment: "")
+    static let medicineChoices: [(String, String, Bool)] = [
+            (NSLocalizedString("Yes, all of my prescribed doses", comment: ""), "YesAllDoses", true),
+            (NSLocalizedString("Yes, some but not all of my prescribed doses", comment: ""), "YesNotAllDoses", true),
+            (NSLocalizedString("No, I did not take them", comment: ""), "No", true),
+            (NSLocalizedString("I'm not sure", comment: ""), "NotSure", true),
+        ]
 }
