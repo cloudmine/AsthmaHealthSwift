@@ -68,7 +68,25 @@ extension ActivitiesViewController {
             return
         }
 
-        let surveyVC = ORKTaskViewController(task: task, restorationData: nil, delegate: nil)
+        let surveyVC = ORKTaskViewController(task: task, restorationData: nil, delegate: self)
         presentViewController(surveyVC, animated: true, completion: nil)
+    }
+}
+
+// MARK: ORKTaskViewControllerDelegate
+
+extension ActivitiesViewController: ORKTaskViewControllerDelegate {
+
+    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        guard presentedViewController == taskViewController else {
+            return
+        }
+
+        dismissViewControllerAnimated(true, completion: nil)
+
+        guard nil == error else {
+            "Error completing survey".alert(in: self, withError: error)
+            return
+        }
     }
 }
