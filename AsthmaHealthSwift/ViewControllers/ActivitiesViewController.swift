@@ -1,4 +1,5 @@
 import UIKit
+import ResearchKit
 
 class ActivitiesViewController: UITableViewController {
 
@@ -7,10 +8,7 @@ class ActivitiesViewController: UITableViewController {
                                             frequency: .Daily,
                                             questionCount: 8),
 
-                            SurveyInfo(displayName: NSLocalizedString("Daily Survey", comment: ""),
-                                            rkIdentifier: "ACMDailySurveyTask",
-                                            frequency: .Weekly,
-                                            questionCount: 8)
+                            Survey.Daily.info
                           ]
 
     override func viewDidLoad() {
@@ -65,6 +63,12 @@ extension ActivitiesViewController {
 extension ActivitiesViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Cell: \(indexPath.row)")
+        guard indexPath.row <= surveys.count,
+            let task = Survey.task(forInfo: surveys[indexPath.row]) else {
+            return
+        }
+
+        let surveyVC = ORKTaskViewController(task: task, restorationData: nil, delegate: nil)
+        presentViewController(surveyVC, animated: true, completion: nil)
     }
 }

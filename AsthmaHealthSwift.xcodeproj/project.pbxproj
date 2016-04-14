@@ -31,6 +31,7 @@
 		B4F14AEB1CBED6BE0047C57E /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */; };
 		B4F14AED1CBEE0B20047C57E /* SurveyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AEC1CBEE0B20047C57E /* SurveyInfo.swift */; };
 		B4F14AEF1CBEE1AC0047C57E /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AEE1CBEE1AC0047C57E /* ActivityCell.swift */; };
+		B4F14AF11CBFF9420047C57E /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AF01CBFF9420047C57E /* Survey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		B4F14AEC1CBEE0B20047C57E /* SurveyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyInfo.swift; sourceTree = "<group>"; };
 		B4F14AEE1CBEE1AC0047C57E /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		B4F14AF01CBFF9420047C57E /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		E452BB0FF8857FE8A483DA36 /* Pods-AsthmaHealthSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthSwift/Pods-AsthmaHealthSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 			children = (
 				B4271D9C1CB6D94200AA035F /* Consent.swift */,
 				B4F14AEC1CBEE0B20047C57E /* SurveyInfo.swift */,
+				B4F14AF01CBFF9420047C57E /* Survey.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */,
 				B4F14AED1CBEE0B20047C57E /* SurveyInfo.swift in Sources */,
 				B4271D9B1CB6CACD00AA035F /* UIViewController+AHS.swift in Sources */,
+				B4F14AF11CBFF9420047C57E /* Survey.swift in Sources */,
 				B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */,
 				B4F14AEB1CBED6BE0047C57E /* ActivitiesViewController.swift in Sources */,
 				B4271DA31CB6F0CF00AA035F /* UIButton+AHS.swift in Sources */,

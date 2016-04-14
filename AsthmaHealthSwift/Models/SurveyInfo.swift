@@ -10,3 +10,12 @@ struct SurveyInfo {
     let frequency: SurveyFrequency
     let questionCount: Int
 }
+
+extension SurveyInfo : Equatable { }
+
+func ==(lhs: SurveyInfo, rhs: SurveyInfo) -> Bool {
+    return lhs.displayName == rhs.displayName &&
+        lhs.rkIdentifier == rhs.rkIdentifier &&
+        lhs.frequency == rhs.frequency &&
+        lhs.questionCount == rhs.questionCount
+}
