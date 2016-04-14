@@ -31,12 +31,19 @@ private extension Survey.Daily {
     }
 
     static var steps: [ORKStep] {
-        return [daytimeQuestion]
+        return [daytimeQuestion, nighttimeQuestion]
     }
 
     static var daytimeQuestion: ORKQuestionStep {
         return ORKQuestionStep(identifier: "ACMDailySurveyDaytimeQuestion",
                                title: NSLocalizedString("In the last 24 hours, did you have any daytime asthma symptoms (cough, wheeze, shortness of breath or chest tightness)?", comment: ""),
+                               text: nil,
+                               answer: ORKBooleanAnswerFormat())
+    }
+
+    static var nighttimeQuestion: ORKQuestionStep {
+        return ORKQuestionStep(identifier: "ACMDailySurveyNighttimeQuestion",
+                               title: NSLocalizedString("In the last 24 hours, did you have any nighttime waking from asthma symptoms (cough, wheeze, shortness of breath or chest tightness)?", comment: ""),
                                text: nil,
                                answer: ORKBooleanAnswerFormat())
     }
