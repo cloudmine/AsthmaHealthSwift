@@ -48,7 +48,7 @@ private extension Survey.Daily {
     }
 
     static var steps: [ORKStep] {
-        return [daytimeQuestion, nighttimeQuestion, inhalerQuestion, puffsQuestion, causesQuestion]
+        return [daytimeQuestion, nighttimeQuestion, inhalerQuestion, puffsQuestion, causesQuestion, flowQuestion]
     }
 
     static var daytimeQuestion: ORKQuestionStep {
@@ -83,6 +83,15 @@ private extension Survey.Daily {
 
     static var causesQuestion: ORKQuestionStep {
         return Survey.textQuestion(withTitle: causesTitle, surveyId: surveyId, questionId: "Causes", choiceInfo: causesChoices)
+    }
+
+    static var flowQuestion: ORKQuestionStep {
+        let format = ORKNumericAnswerFormat(style: .Integer, unit: NSLocalizedString("L/min", comment: ""), minimum: 60, maximum: 900)
+
+        return ORKQuestionStep(identifier: "ACMDailyPeaksQuestion",
+                               title: NSLocalizedString("Enter your peak flow today? (L/min)", comment: ""),
+                               text: nil,
+                               answer: format)
     }
 }
 
