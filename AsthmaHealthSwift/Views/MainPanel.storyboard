@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main Panel View Controller-->
         <scene sceneID="FzI-L4-OTo">
             <objects>
-                <tabBarController id="0gv-RR-sRp" sceneMemberID="viewController">
+                <tabBarController id="0gv-RR-sRp" customClass="MainPanelViewController" customModule="AsthmaHealthSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="lFZ-z7-ZRb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

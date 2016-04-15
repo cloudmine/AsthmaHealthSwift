@@ -88,5 +88,11 @@ extension ActivitiesViewController: ORKTaskViewControllerDelegate {
             "Error completing survey".alert(in: self, withError: error)
             return
         }
+
+        guard case .Completed = reason else {
+            return
+        }
+
+        mainPanel?.upload(result: taskViewController.result)
     }
 }

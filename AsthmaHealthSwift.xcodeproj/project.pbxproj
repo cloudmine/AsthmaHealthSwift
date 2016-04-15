@@ -17,6 +17,7 @@
 		B4271DA51CB8222600AA035F /* MainPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4271DA41CB8222600AA035F /* MainPanel.storyboard */; };
 		B4271DA71CB8228000AA035F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4271DA61CB8228000AA035F /* Profile.storyboard */; };
 		B42A506B1CB5A8BC00156CCB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42A506A1CB5A8BC00156CCB /* Secrets.swift */; };
+		B49341791CC13E580010150B /* MainPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49341781CC13E580010150B /* MainPanelViewController.swift */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
 		B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* OnboardingViewController.swift */; };
 		B4AC68471CB596600094861A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68461CB596600094861A /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		B4271DA41CB8222600AA035F /* MainPanel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPanel.storyboard; sourceTree = "<group>"; };
 		B4271DA61CB8228000AA035F /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B42A506A1CB5A8BC00156CCB /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		B49341781CC13E580010150B /* MainPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPanelViewController.swift; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AC68411CB596600094861A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -132,8 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				B4AC68411CB596600094861A /* OnboardingViewController.swift */,
-				B4F14ADC1CB827810047C57E /* ProfileViewController.swift */,
+				B49341781CC13E580010150B /* MainPanelViewController.swift */,
 				B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */,
+				B4F14ADC1CB827810047C57E /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				B4F14AEB1CBED6BE0047C57E /* ActivitiesViewController.swift in Sources */,
 				B4271DA31CB6F0CF00AA035F /* UIButton+AHS.swift in Sources */,
 				B4271D9D1CB6D94200AA035F /* Consent.swift in Sources */,
+				B49341791CC13E580010150B /* MainPanelViewController.swift in Sources */,
 				B4F14AEF1CBEE1AC0047C57E /* ActivityCell.swift in Sources */,
 				B4271DA11CB6EFD300AA035F /* UIColor+AHS.swift in Sources */,
 				B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */,
