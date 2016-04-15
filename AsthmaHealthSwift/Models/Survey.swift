@@ -44,7 +44,7 @@ private extension Survey {
 private extension Survey.Daily {
 
     static var Task: ORKOrderedTask {
-        return ORKOrderedTask(identifier: "", steps: steps)
+        return ORKOrderedTask(identifier: info.rkIdentifier, steps: steps)
     }
 
     static var steps: [ORKStep] {
