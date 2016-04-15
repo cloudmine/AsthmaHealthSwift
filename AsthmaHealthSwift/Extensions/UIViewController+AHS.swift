@@ -3,33 +3,26 @@ import UIKit
 extension UIViewController {
 
     var mainPanel: MainPanelViewController? {
-        return findMainPanel(self)
+        return findParent(ofViewController: self)
     }
 
     func removeNavigationBarDropShadow() {
-        var viewController: UIViewController? = self
+        let navController: UINavigationController? = findParent(ofViewController: self)
 
-        while nil != viewController {
-            guard let navController = viewController as? UINavigationController else {
-                viewController = viewController?.parentViewController
-                continue
-            }
-
-            navController.navigationBar.setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
-            navController.navigationBar.shadowImage = UIImage()
-            break
-        }
+        navController?.navigationBar.setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
+        navController?.navigationBar.shadowImage = UIImage()
     }
 }
 
-private func findMainPanel(viewController: UIViewController?) -> MainPanelViewController? {
-    if let mainPanel = viewController as? MainPanelViewController {
-        return mainPanel
+// Find the first ViewController of a given anywhere in the hiearchy of a base ViewController
+private func findParent<V: UIViewController>(ofViewController viewController: UIViewController?) -> V? {
+    if let typedViewController = viewController as? V {
+        return typedViewController
     }
 
     guard let parentViewController = viewController?.parentViewController else {
         return nil
     }
 
-    return findMainPanel(parentViewController)
+    return findParent(ofViewController: parentViewController)
 }
