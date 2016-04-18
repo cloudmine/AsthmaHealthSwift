@@ -3,13 +3,7 @@ import ResearchKit
 
 class ActivitiesViewController: UITableViewController {
 
-    private let surveys = [ SurveyInfo(displayName: NSLocalizedString("About You", comment: ""),
-                                            rkIdentifier: "ACMAboutYouSurveyTask",
-                                            frequency: .OneTime,
-                                            questionCount: 8),
-
-                            Survey.Daily.info
-                          ]
+    private let surveys = [Survey.About.info, Survey.Daily.info]
 
     override func viewDidLoad() {
         super.viewDidLoad()

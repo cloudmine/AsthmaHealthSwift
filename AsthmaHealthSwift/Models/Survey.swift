@@ -1,5 +1,7 @@
 import ResearchKit
 
+typealias TextQuestionChoice = (text: String, keyword: String, exclusive: Bool)
+
 // MARK: Public
 
 struct Survey {
@@ -8,9 +10,19 @@ struct Survey {
         switch info {
         case Daily.info:
             return Daily.Task
+        case About.info:
+            return About.Task
         default:
             return nil
         }
+    }
+
+    struct About {
+
+        static let info: SurveyInfo = SurveyInfo(displayName: NSLocalizedString("About You", comment: ""),
+                                                 rkIdentifier: "ACMAboutYouSurveyTask",
+                                                 frequency: .OneTime,
+                                                 questionCount: 8)
     }
 
     struct Daily {
@@ -26,17 +38,53 @@ struct Survey {
 
 private extension Survey {
 
-    static func textQuestion(withTitle title: String, surveyId sId: String, questionId qId: String, choiceInfo: [(String, String, Bool)]) -> ORKQuestionStep  {
-        let choices = choiceInfo.map { (text, keyword, isExclusive) in
-            ORKTextChoice(text: text, detailText: nil, value: "ACM\(qId)\(keyword)Choice", exclusive: isExclusive)
+    static func textQuestion(withTitle title: String, surveyId sId: String, questionId qId: String, choiceInfo: [TextQuestionChoice]) -> ORKQuestionStep  {
+        let choices = choiceInfo.map { choice in
+            ORKTextChoice(text: choice.text, detailText: nil, value: "ACM\(qId)\(choice.keyword)Choice", exclusive: choice.exclusive)
         }
 
-        let allExclusive = choiceInfo.reduce(true) { (acc, info) in acc && info.2 }
+        let allExclusive = choiceInfo.reduce(true) { (acc, info) in acc && info.exclusive }
         let style = allExclusive ? ORKChoiceAnswerStyle.SingleChoice : .MultipleChoice
 
         let format = ORKTextChoiceAnswerFormat(style: style, textChoices: choices)
         return ORKQuestionStep(identifier: "ACM\(sId)Survey\(qId)Question", title: title, text: nil, answer: format)
     }
+}
+
+// MARK: About You Survey Generator
+
+private extension Survey.About {
+
+    static var Task: ORKOrderedTask {
+        return ORKOrderedTask(identifier: info.rkIdentifier, steps: steps)
+    }
+
+    static var steps: [ORKStep] {
+        return [ethnicityQuestion]
+    }
+
+    static var ethnicityQuestion: ORKQuestionStep {
+        return Survey.textQuestion(withTitle: ethnicityTitle, surveyId: surveyId, questionId: ethnicityQId, choiceInfo: ethnicityChoices)
+    }
+}
+
+// MARK: About You Survey Strings
+
+private extension Survey.About {
+
+    static let surveyId = "AboutYou"
+
+    static func noAnswerChoice(forQuestionId qId: String) -> TextQuestionChoice {
+        return (NSLocalizedString("I choose not to answer", comment:""), "ACM\(qId)ChooseNotToAnswerChoice", true)
+    }
+
+    static let ethnicityTitle = NSLocalizedString("Ethnicity", comment: "")
+    static let ethnicityQId = "Ethnicity"
+    static let ethnicityChoices: [TextQuestionChoice] = [
+            (NSLocalizedString("Hispanic/Latino", comment: ""), "HispanicLatino", true),
+            (NSLocalizedString("Non-Hispanic/Latino", comment: ""), "NonHispanicLatino", true),
+            Survey.About.noAnswerChoice(forQuestionId: Survey.About.ethnicityQId)
+        ]
 }
 
 // MARK: Daily Survey Generator
@@ -102,10 +150,11 @@ private extension Survey.Daily {
 // MARK: Daily Survey Strings
 
 private extension Survey.Daily {
+
     static let surveyId = "Daily"
 
     static let causesTitle = NSLocalizedString("Did any of the following cause your asthma to get worse today? (check all that apply):", comment: "")
-    static let causesChoices: [(String, String, Bool)] = [
+    static let causesChoices: [TextQuestionChoice] = [
             (NSLocalizedString("A Cold", comment: ""), "Cold", false),
             (NSLocalizedString("Exercise", comment: ""), "Exercise", false),
             (NSLocalizedString("Being more active than usual (walking, running, climbing stairs)", comment: ""), "Activity", false),
@@ -131,7 +180,7 @@ private extension Survey.Daily {
         ]
 
     static let medicineTitle = NSLocalizedString("Did you take your asthma control medicine in the last 24 hours?", comment: "")
-    static let medicineChoices: [(String, String, Bool)] = [
+    static let medicineChoices: [TextQuestionChoice] = [
             (NSLocalizedString("Yes, all of my prescribed doses", comment: ""), "YesAllDoses", true),
             (NSLocalizedString("Yes, some but not all of my prescribed doses", comment: ""), "YesNotAllDoses", true),
             (NSLocalizedString("No, I did not take them", comment: ""), "No", true),
