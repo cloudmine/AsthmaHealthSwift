@@ -17,7 +17,7 @@ struct Survey {
 
         static let info: SurveyInfo = SurveyInfo(displayName: NSLocalizedString("Daily Survey", comment: ""),
                                                    rkIdentifier: "ACMDailySurveyTask",
-                                                   frequency: .Weekly,
+                                                   frequency: .Daily,
                                                    questionCount: 8)
     }
 }

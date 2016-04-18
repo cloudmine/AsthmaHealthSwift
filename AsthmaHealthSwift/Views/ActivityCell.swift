@@ -19,8 +19,8 @@ class ActivityCell: UITableViewCell {
 
     private static func color(forFrequency freq:SurveyFrequency) -> UIColor  {
         switch freq {
-        case .Weekly:
-            return UIColor.acmWeekly()
+        case .OneTime:
+            return UIColor.acmOneTime()
         case .Daily:
             return UIColor.acmDaily()
         }
