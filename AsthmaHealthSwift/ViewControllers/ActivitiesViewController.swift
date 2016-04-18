@@ -5,7 +5,7 @@ class ActivitiesViewController: UITableViewController {
 
     private let surveys = [ SurveyInfo(displayName: NSLocalizedString("About You", comment: ""),
                                             rkIdentifier: "ACMAboutYouSurveyTask",
-                                            frequency: .Daily,
+                                            frequency: .OneTime,
                                             questionCount: 8),
 
                             Survey.Daily.info
@@ -14,13 +14,15 @@ class ActivitiesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mainPanel?.results.add(observer: self) { (results: SurveyResults) in
-            print("Observered Results: \(results)")
-        }
-
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         tableView.addSubview(refresher)
+
+        mainPanel?.results.add(observer: self) { _ in
+            onMainThread {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     deinit {
@@ -57,7 +59,9 @@ extension ActivitiesViewController {
             return cell
         }
 
-        activityCell.configure(withInfo: surveys[indexPath.row])
+        let info = surveys[indexPath.row]
+        activityCell.configure(withInfo: info)
+        print("Has Completed: \(hasCompleted(surveyWithInfo: info))")
 
         return activityCell
     }
@@ -103,5 +107,33 @@ extension ActivitiesViewController: ORKTaskViewControllerDelegate {
         }
 
         mainPanel?.upload(result: taskViewController.result)
+    }
+}
+
+// MARK: Private
+
+private extension ActivitiesViewController {
+
+    func hasCompleted(surveyWithInfo info: SurveyInfo) -> Bool {
+        switch info.frequency {
+        case .Daily:
+            return hasCompletedDailyToday()
+        default:
+            return false
+        }
+    }
+
+    func hasCompletedDailyToday() -> Bool {
+        guard let dailyResults = mainPanel?.results.value.daily else {
+            return false
+        }
+
+        return dailyResults.reduce(false) { (acc, taskResult) in
+            guard let isToday = taskResult.endDate?.isToday else {
+                return acc || false
+            }
+
+            return acc || isToday
+        }
     }
 }

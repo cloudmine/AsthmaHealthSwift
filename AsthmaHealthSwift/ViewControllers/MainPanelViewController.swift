@@ -24,7 +24,7 @@ extension MainPanelViewController {
                 return
             }
 
-            print("Upload Successful")
+            self.refresh()
         }
     }
 
