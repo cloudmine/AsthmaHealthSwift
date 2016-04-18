@@ -5,7 +5,7 @@ typealias SurveyResults = (about: ORKTaskResult?, daily: [ORKTaskResult])
 
 class MainPanelViewController: UITabBarController {
 
-    private(set) var results: SurveyResults = (about: nil, daily: [])
+    private(set) var results: Observable<SurveyResults> = Observable((about: nil, daily: []))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ extension MainPanelViewController {
                 return
             }
 
-            self.results = (about: self.results.about, daily: fetchResults)
+            self.results <- (about: self.results.value.about, daily: fetchResults)
 
             print("Fetched: \(self.results)")
         }

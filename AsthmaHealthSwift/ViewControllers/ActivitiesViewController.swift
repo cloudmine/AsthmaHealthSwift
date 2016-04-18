@@ -14,9 +14,17 @@ class ActivitiesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainPanel?.results.add(observer: self) { (results: SurveyResults) in
+            print("Observered Results: \(results)")
+        }
+
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         tableView.addSubview(refresher)
+    }
+
+    deinit {
+        mainPanel?.results.remove(observer: self)
     }
 }
 
@@ -25,6 +33,7 @@ class ActivitiesViewController: UITableViewController {
 extension ActivitiesViewController {
 
     func refresh(control: UIRefreshControl) {
+        mainPanel?.refresh()
         control.endRefreshing()
     }
 }
