@@ -60,8 +60,7 @@ extension ActivitiesViewController {
         }
 
         let info = surveys[indexPath.row]
-        activityCell.configure(withInfo: info)
-        print("Has Completed: \(hasCompleted(surveyWithInfo: info))")
+        activityCell.configure(withInfo: info, asCompleted: hasCompleted(surveyWithInfo: info))
 
         return activityCell
     }
