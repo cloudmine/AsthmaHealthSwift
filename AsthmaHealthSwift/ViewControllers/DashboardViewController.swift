@@ -3,7 +3,7 @@ import ResearchKit
 
 class DashboardViewController: UIViewController {
 
-    @IBOutlet weak var onceChart: ORKPieChartView!
+    @IBOutlet weak var aboutChart: ORKPieChartView!
     @IBOutlet weak var dailyChart: ORKPieChartView!
 
     private var hasCompletedAbout = false
@@ -11,13 +11,23 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        onceChart.title = NSLocalizedString("One Time Surveys", comment: "")
+        aboutChart.title = NSLocalizedString("About Your Survey", comment: "")
         dailyChart.title = NSLocalizedString("Daily Surveys (Today)", comment: "")
-        
-        [onceChart, dailyChart].forEach { chart in
+
+        [aboutChart, dailyChart].forEach { chart in
             chart.showsTitleAboveChart = true
             chart.dataSource = self
         }
+
+        self.refreshUI(withResults: mainPanel?.results.value)
+
+        mainPanel?.results.add(observer: self) { (newResults) in
+            self.refreshUI(withResults: newResults)
+        }
+    }
+
+    deinit {
+        mainPanel?.results.remove(observer: self)
     }
 }
 
@@ -31,5 +41,39 @@ extension DashboardViewController: ORKPieChartViewDataSource {
 
     func pieChartView(pieChartView: ORKPieChartView, valueForSegmentAtIndex index: Int) -> CGFloat {
         return 1.0
+    }
+
+    func pieChartView(pieChartView: ORKPieChartView, titleForSegmentAtIndex index: Int) -> String {
+        if pieChartView == aboutChart && hasCompletedAbout {
+            return NSLocalizedString("Complete", comment: "")
+        }
+
+        return NSLocalizedString("Incomplete", comment: "")
+    }
+
+    func pieChartView(pieChartView: ORKPieChartView, colorForSegmentAtIndex index: Int) -> UIColor {
+        if pieChartView == aboutChart && hasCompletedAbout {
+            return UIColor.acmOneTime()
+        }
+
+        return UIColor.redColor()
+    }
+}
+
+// MARK: Private
+
+private extension DashboardViewController {
+
+    func refreshUI(withResults results: SurveyResults?) {
+        guard let results = results else {
+            return
+        }
+
+        self.hasCompletedAbout = nil != results.about
+
+        onMainThread {
+            self.aboutChart.dataSource = self
+            self.dailyChart.dataSource = self
+        }
     }
 }

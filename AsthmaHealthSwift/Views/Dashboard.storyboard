@@ -98,8 +98,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="YBM-oO-UmI"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="aboutChart" destination="Sfp-SS-h1V" id="qsi-sa-X6Z"/>
                         <outlet property="dailyChart" destination="og7-YO-Xgv" id="wgX-xk-Afo"/>
-                        <outlet property="onceChart" destination="Sfp-SS-h1V" id="n78-M5-GDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fM0-l4-12P" userLabel="First Responder" sceneMemberID="firstResponder"/>
