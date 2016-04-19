@@ -60,11 +60,15 @@ private extension Survey.About {
     }
 
     static var steps: [ORKStep] {
-        return [ethnicityQuestion]
+        return [ethnicityQuestion, raceQuestion]
     }
 
     static var ethnicityQuestion: ORKQuestionStep {
         return Survey.textQuestion(withTitle: ethnicityTitle, surveyId: surveyId, questionId: ethnicityQId, choiceInfo: ethnicityChoices)
+    }
+
+    static var raceQuestion: ORKQuestionStep {
+        return Survey.textQuestion(withTitle: raceTitle, surveyId: surveyId, questionId: raceQId, choiceInfo: raceChoices)
     }
 }
 
@@ -84,6 +88,18 @@ private extension Survey.About {
             (NSLocalizedString("Hispanic/Latino", comment: ""), "HispanicLatino", true),
             (NSLocalizedString("Non-Hispanic/Latino", comment: ""), "NonHispanicLatino", true),
             Survey.About.noAnswerChoice(forQuestionId: Survey.About.ethnicityQId)
+        ]
+
+    static let raceTitle = NSLocalizedString("Race", comment: "")
+    static let raceQId = "Race"
+    static let raceChoices: [TextQuestionChoice] = [
+            (NSLocalizedString("Black/African American", comment: ""), "Black", false),
+            (NSLocalizedString("Asian", comment: ""), "Asian", false),
+            (NSLocalizedString("American Indian or Alaskan Native", comment: ""), "NativeAmerican", false),
+            (NSLocalizedString("Hawaiian or other Pacific Islander", comment: ""), "PacificIslander", false),
+            (NSLocalizedString("White", comment: ""), "White", false),
+            (NSLocalizedString("Other", comment: ""), "Other", false),
+            Survey.About.noAnswerChoice(forQuestionId: Survey.About.raceQId)
         ]
 }
 
