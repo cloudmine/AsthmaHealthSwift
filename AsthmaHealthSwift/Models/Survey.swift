@@ -60,7 +60,7 @@ private extension Survey.About {
     }
 
     static var steps: [ORKStep] {
-        return [ethnicityQuestion, raceQuestion]
+        return [ethnicityQuestion, raceQuestion, incomeQuestion]
     }
 
     static var ethnicityQuestion: ORKQuestionStep {
@@ -69,6 +69,10 @@ private extension Survey.About {
 
     static var raceQuestion: ORKQuestionStep {
         return Survey.textQuestion(withTitle: raceTitle, surveyId: surveyId, questionId: raceQId, choiceInfo: raceChoices)
+    }
+
+    static var incomeQuestion: ORKQuestionStep {
+        return Survey.textQuestion(withTitle: incomeTitle, surveyId: surveyId, questionId: incomeQId, choiceInfo: incomChoices)
     }
 }
 
@@ -90,7 +94,7 @@ private extension Survey.About {
             Survey.About.noAnswerChoice(forQuestionId: Survey.About.ethnicityQId)
         ]
 
-    static let raceTitle = NSLocalizedString("Race", comment: "")
+    static let raceTitle = NSLocalizedString("Race (Check all that apply)", comment: "")
     static let raceQId = "Race"
     static let raceChoices: [TextQuestionChoice] = [
             (NSLocalizedString("Black/African American", comment: ""), "Black", false),
@@ -100,6 +104,18 @@ private extension Survey.About {
             (NSLocalizedString("White", comment: ""), "White", false),
             (NSLocalizedString("Other", comment: ""), "Other", false),
             Survey.About.noAnswerChoice(forQuestionId: Survey.About.raceQId)
+        ]
+
+    static let incomeTitle = NSLocalizedString("Which of the following best describes the total annual income of all members of your household?", comment: "")
+    static let incomeQId = "Income"
+    static let incomChoices: [TextQuestionChoice] = [
+            (NSLocalizedString("<$14,999", comment: ""), "Tier1", true),
+            (NSLocalizedString("$15,000-21,999", comment: ""), "Tier2", true),
+            (NSLocalizedString("$22,000-43,999", comment: ""), "Tier3", true),
+            (NSLocalizedString("$44,000-60,000", comment: ""), "Tier4", true),
+            (NSLocalizedString(">$60,000", comment: ""), "Tier5", true),
+            (NSLocalizedString("I don't know", comment: ""), "DoNotKnow", true),
+            Survey.About.noAnswerChoice(forQuestionId: Survey.About.incomeQId)
         ]
 }
 
