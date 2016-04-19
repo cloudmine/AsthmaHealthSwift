@@ -121,13 +121,7 @@ private extension ActivitiesViewController {
             return false
         }
 
-        return dailyResults.reduce(false) { (acc, taskResult) in
-            guard let isToday = taskResult.endDate?.isToday else {
-                return acc || false
-            }
-
-            return acc || isToday
-        }
+        return dailyResults.anyCompletedToday
     }
 
     func hasCompletedAboutYou() -> Bool {

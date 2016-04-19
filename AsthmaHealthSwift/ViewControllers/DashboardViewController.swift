@@ -7,6 +7,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var dailyChart: ORKPieChartView!
 
     private var hasCompletedAbout = false
+    private var hasCompletedDaily = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,9 @@ extension DashboardViewController: ORKPieChartViewDataSource {
     }
 
     func pieChartView(pieChartView: ORKPieChartView, titleForSegmentAtIndex index: Int) -> String {
-        if pieChartView == aboutChart && hasCompletedAbout {
+        if pieChartView == aboutChart && hasCompletedAbout
+            || pieChartView == dailyChart && hasCompletedDaily {
+
             return NSLocalizedString("Complete", comment: "")
         }
 
@@ -54,6 +57,8 @@ extension DashboardViewController: ORKPieChartViewDataSource {
     func pieChartView(pieChartView: ORKPieChartView, colorForSegmentAtIndex index: Int) -> UIColor {
         if pieChartView == aboutChart && hasCompletedAbout {
             return UIColor.acmOneTime()
+        } else if pieChartView == dailyChart && hasCompletedDaily {
+            return UIColor.acmDaily()
         }
 
         return UIColor.redColor()
@@ -69,7 +74,8 @@ private extension DashboardViewController {
             return
         }
 
-        self.hasCompletedAbout = nil != results.about
+        hasCompletedAbout = nil != results.about
+        hasCompletedDaily = results.daily.anyCompletedToday
 
         onMainThread {
             self.aboutChart.dataSource = self
