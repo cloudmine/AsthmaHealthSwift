@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bbp-7V-0Yk">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Dashboard-->
+        <scene sceneID="D8o-Ce-rwV">
+            <objects>
+                <navigationController id="bbp-7V-0Yk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="DashboardIcon" selectedImage="DashboardIconSelected" id="qpf-kP-0de"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MMX-iD-ADc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0FB-bg-bfs" kind="relationship" relationship="rootViewController" id="1gQ-xE-ww8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U6I-dv-uVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="463"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="8He-X8-00T">
+            <objects>
+                <viewController id="0FB-bg-bfs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jxn-cq-IX2"/>
+                        <viewControllerLayoutGuide type="bottom" id="pBM-6Q-ZS8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ftr-TI-mb4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxI-oU-X1O">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWi-H2-BDt" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="518"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sfp-SS-h1V" customClass="ORKPieChartView">
+                                                <rect key="frame" x="20" y="20" width="560" height="200"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgZ-a8-Aph">
+                                                <rect key="frame" x="527" y="468" width="53" height="30"/>
+                                                <state key="normal" title="Refresh"/>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og7-YO-Xgv" customClass="ORKPieChartView">
+                                                <rect key="frame" x="20" y="252" width="560" height="200"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Sfp-SS-h1V" firstAttribute="top" secondItem="XWi-H2-BDt" secondAttribute="top" constant="20" symbolic="YES" id="0Qf-iQ-MzL"/>
+                                            <constraint firstItem="BgZ-a8-Aph" firstAttribute="top" secondItem="og7-YO-Xgv" secondAttribute="bottom" constant="16" id="1CT-rM-VRF"/>
+                                            <constraint firstItem="og7-YO-Xgv" firstAttribute="height" secondItem="Sfp-SS-h1V" secondAttribute="height" id="74W-Uf-i5U"/>
+                                            <constraint firstItem="og7-YO-Xgv" firstAttribute="leading" secondItem="Sfp-SS-h1V" secondAttribute="leading" id="Iu3-He-DLD"/>
+                                            <constraint firstAttribute="trailing" secondItem="BgZ-a8-Aph" secondAttribute="trailing" constant="20" symbolic="YES" id="Ovo-gQ-t9d"/>
+                                            <constraint firstItem="og7-YO-Xgv" firstAttribute="trailing" secondItem="Sfp-SS-h1V" secondAttribute="trailing" id="Tfo-Hw-s0c"/>
+                                            <constraint firstAttribute="bottom" secondItem="BgZ-a8-Aph" secondAttribute="bottom" constant="20" symbolic="YES" id="jW9-Gg-thF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sfp-SS-h1V" secondAttribute="trailing" constant="20" symbolic="YES" id="nye-mk-V7m"/>
+                                            <constraint firstItem="og7-YO-Xgv" firstAttribute="top" secondItem="Sfp-SS-h1V" secondAttribute="bottom" constant="32" id="qLY-9N-eBn"/>
+                                            <constraint firstItem="Sfp-SS-h1V" firstAttribute="leading" secondItem="XWi-H2-BDt" secondAttribute="leading" constant="20" symbolic="YES" id="utm-sQ-ppB"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XWi-H2-BDt" secondAttribute="bottom" id="W5l-eV-9dg"/>
+                                    <constraint firstItem="XWi-H2-BDt" firstAttribute="top" secondItem="DxI-oU-X1O" secondAttribute="top" id="atm-qr-jut"/>
+                                    <constraint firstItem="XWi-H2-BDt" firstAttribute="leading" secondItem="DxI-oU-X1O" secondAttribute="leading" id="s1O-94-Ttp"/>
+                                    <constraint firstAttribute="trailing" secondItem="XWi-H2-BDt" secondAttribute="trailing" id="yXc-BT-GcX"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DxI-oU-X1O" secondAttribute="trailing" id="Um6-MV-OMh"/>
+                            <constraint firstItem="DxI-oU-X1O" firstAttribute="top" secondItem="ftr-TI-mb4" secondAttribute="top" id="Ymc-hN-4QL"/>
+                            <constraint firstItem="Sfp-SS-h1V" firstAttribute="height" secondItem="ftr-TI-mb4" secondAttribute="height" multiplier="1/3" id="avq-dw-tO0"/>
+                            <constraint firstItem="XWi-H2-BDt" firstAttribute="width" secondItem="ftr-TI-mb4" secondAttribute="width" id="dHt-zL-gTC"/>
+                            <constraint firstItem="DxI-oU-X1O" firstAttribute="leading" secondItem="ftr-TI-mb4" secondAttribute="leading" id="e9C-i8-yrp"/>
+                            <constraint firstItem="DxI-oU-X1O" firstAttribute="top" secondItem="Jxn-cq-IX2" secondAttribute="bottom" id="qq9-Yj-Grq"/>
+                            <constraint firstItem="pBM-6Q-ZS8" firstAttribute="top" secondItem="DxI-oU-X1O" secondAttribute="bottom" id="xQ6-AQ-8yy"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="qq9-Yj-Grq"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dashboard" id="qVf-Os-EUr">
+                        <barButtonItem key="backBarButtonItem" title=" " id="YBM-oO-UmI"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fM0-l4-12P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072" y="463"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DashboardIcon" width="29" height="21"/>
+        <image name="DashboardIconSelected" width="29" height="21"/>
+    </resources>
+</document>

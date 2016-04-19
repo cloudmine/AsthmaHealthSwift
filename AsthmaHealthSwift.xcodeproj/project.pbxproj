@@ -21,6 +21,7 @@
 		B493417B1CC537710010150B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493417A1CC537710010150B /* Observable.swift */; };
 		B493417D1CC54AFF0010150B /* NSDate+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493417C1CC54AFF0010150B /* NSDate+AHS.swift */; };
 		B493417F1CC55DD50010150B /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493417E1CC55DD50010150B /* LoadingOverlay.swift */; };
+		B49341811CC6CAA40010150B /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49341801CC6CAA40010150B /* Dashboard.storyboard */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
 		B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* OnboardingViewController.swift */; };
 		B4AC68471CB596600094861A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68461CB596600094861A /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		B493417A1CC537710010150B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B493417C1CC54AFF0010150B /* NSDate+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+AHS.swift"; sourceTree = "<group>"; };
 		B493417E1CC55DD50010150B /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		B49341801CC6CAA40010150B /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AC68411CB596600094861A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				B4271D911CB6BD2E00AA035F /* Onboarding.storyboard */,
 				B4271DA41CB8222600AA035F /* MainPanel.storyboard */,
 				B4F14AE61CBED5C60047C57E /* Activities.storyboard */,
+				B49341801CC6CAA40010150B /* Dashboard.storyboard */,
 				B4F14AE41CBECFCC0047C57E /* Learn.storyboard */,
 				B4271DA61CB8228000AA035F /* Profile.storyboard */,
 				B4F14AEE1CBEE1AC0047C57E /* ActivityCell.swift */,
@@ -363,6 +366,7 @@
 				B4F14AE71CBED5C60047C57E /* Activities.storyboard in Resources */,
 				B4AC68471CB596600094861A /* Assets.xcassets in Resources */,
 				B4F14AE51CBECFCC0047C57E /* Learn.storyboard in Resources */,
+				B49341811CC6CAA40010150B /* Dashboard.storyboard in Resources */,
 				B4271DA71CB8228000AA035F /* Profile.storyboard in Resources */,
 				B4F14AE31CBEAEBB0047C57E /* cloudmine-logo.png in Resources */,
 				B4271D9F1CB6ECB400AA035F /* Localizable.strings in Resources */,
