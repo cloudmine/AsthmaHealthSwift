@@ -48,6 +48,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgZ-a8-Aph">
                                                 <rect key="frame" x="527" y="468" width="53" height="30"/>
                                                 <state key="normal" title="Refresh"/>
+                                                <connections>
+                                                    <action selector="refreshDidPress:" destination="0FB-bg-bfs" eventType="touchUpInside" id="OUc-wh-dGV"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og7-YO-Xgv" customClass="ORKPieChartView">
                                                 <rect key="frame" x="20" y="252" width="560" height="200"/>

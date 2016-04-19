@@ -32,6 +32,15 @@ class DashboardViewController: UIViewController {
     }
 }
 
+// MARK: Target-Action
+
+private extension DashboardViewController {
+
+    @IBAction func refreshDidPress(sender: UIButton) {
+        mainPanel?.refresh()
+    }
+}
+
 // MARK: ORKPieChartViewDataSource
 
 extension DashboardViewController: ORKPieChartViewDataSource {
