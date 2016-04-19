@@ -27,7 +27,7 @@
         <!--Dashboard-->
         <scene sceneID="8He-X8-00T">
             <objects>
-                <viewController id="0FB-bg-bfs" sceneMemberID="viewController">
+                <viewController id="0FB-bg-bfs" customClass="DashboardViewController" customModule="AsthmaHealthSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jxn-cq-IX2"/>
                         <viewControllerLayoutGuide type="bottom" id="pBM-6Q-ZS8"/>
@@ -97,6 +97,10 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="qVf-Os-EUr">
                         <barButtonItem key="backBarButtonItem" title=" " id="YBM-oO-UmI"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dailyChart" destination="og7-YO-Xgv" id="wgX-xk-Afo"/>
+                        <outlet property="onceChart" destination="Sfp-SS-h1V" id="n78-M5-GDN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fM0-l4-12P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

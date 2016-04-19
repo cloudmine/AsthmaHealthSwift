@@ -22,6 +22,7 @@
 		B493417D1CC54AFF0010150B /* NSDate+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493417C1CC54AFF0010150B /* NSDate+AHS.swift */; };
 		B493417F1CC55DD50010150B /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493417E1CC55DD50010150B /* LoadingOverlay.swift */; };
 		B49341811CC6CAA40010150B /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49341801CC6CAA40010150B /* Dashboard.storyboard */; };
+		B49341851CC6CF800010150B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49341841CC6CF800010150B /* DashboardViewController.swift */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
 		B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* OnboardingViewController.swift */; };
 		B4AC68471CB596600094861A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68461CB596600094861A /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		B493417C1CC54AFF0010150B /* NSDate+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+AHS.swift"; sourceTree = "<group>"; };
 		B493417E1CC55DD50010150B /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		B49341801CC6CAA40010150B /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		B49341841CC6CF800010150B /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AC68411CB596600094861A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				B49341781CC13E580010150B /* MainPanelViewController.swift */,
 				B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */,
 				B4F14ADC1CB827810047C57E /* ProfileViewController.swift */,
+				B49341841CC6CF800010150B /* DashboardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B49341851CC6CF800010150B /* DashboardViewController.swift in Sources */,
 				B493417B1CC537710010150B /* Observable.swift in Sources */,
 				B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */,
 				B4F14AED1CBEE0B20047C57E /* SurveyInfo.swift in Sources */,
