@@ -38,15 +38,23 @@ extension MainPanelViewController {
     func refresh() {
         loadingOverlay?.show(loading: true)
 
-        ORKTaskResult.cmh_fetchUserResultsForStudyWithIdentifier(Survey.Daily.info.rkIdentifier) { (fetchResults, error) in
-            self.loadingOverlay?.show(loading: false)
-
-            guard let fetchResults = fetchResults as? [ORKTaskResult] else {
-                "Error fetching past results".alert(in: self, withError: error)
+        ORKTaskResult.cmh_fetchUserResultsForStudyWithIdentifier(Survey.Daily.info.rkIdentifier) { (dailyResults, dailyError) in
+            guard let dailyResults = dailyResults as? [ORKTaskResult] else {
+                self.loadingOverlay?.show(loading: false)
+                "Error fetching past daily results".alert(in: self, withError: dailyError)
                 return
             }
 
-            self.results <- (about: self.results.value.about, daily: fetchResults)
+            ORKTaskResult.cmh_fetchUserResultsForStudyWithIdentifier(Survey.About.info.rkIdentifier) { (aboutResults, aboutError) in
+                self.loadingOverlay?.show(loading: false)
+
+                guard let aboutResults = aboutResults as? [ORKTaskResult] else {
+                    "Error fetching about results".alert(in: self, withError: aboutError)
+                    return
+                }
+
+                self.results <- (about: aboutResults.first, daily: dailyResults)
+            }
         }
     }
 }

@@ -109,10 +109,10 @@ private extension ActivitiesViewController {
 
     func hasCompleted(surveyWithInfo info: SurveyInfo) -> Bool {
         switch info.frequency {
+        case .OneTime:
+            return hasCompletedAboutYou()
         case .Daily:
             return hasCompletedDailyToday()
-        default:
-            return false
         }
     }
 
@@ -128,5 +128,9 @@ private extension ActivitiesViewController {
 
             return acc || isToday
         }
+    }
+
+    func hasCompletedAboutYou() -> Bool {
+        return nil != mainPanel?.results.value.about
     }
 }
