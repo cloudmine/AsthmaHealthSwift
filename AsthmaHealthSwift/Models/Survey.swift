@@ -60,7 +60,7 @@ private extension Survey.About {
     }
 
     static var steps: [ORKStep] {
-        return [ethnicityQuestion, raceQuestion, incomeQuestion]
+        return [ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion]
     }
 
     static var ethnicityQuestion: ORKQuestionStep {
@@ -73,6 +73,10 @@ private extension Survey.About {
 
     static var incomeQuestion: ORKQuestionStep {
         return Survey.textQuestion(withTitle: incomeTitle, surveyId: surveyId, questionId: incomeQId, choiceInfo: incomChoices)
+    }
+
+    static var educationQuestion: ORKQuestionStep {
+        return Survey.textQuestion(withTitle: educationTitle, surveyId: surveyId, questionId: educationQId, choiceInfo: educationChoices)
     }
 }
 
@@ -116,6 +120,19 @@ private extension Survey.About {
             (NSLocalizedString(">$60,000", comment: ""), "Tier5", true),
             (NSLocalizedString("I don't know", comment: ""), "DoNotKnow", true),
             Survey.About.noAnswerChoice(forQuestionId: Survey.About.incomeQId)
+        ]
+
+    static let educationTitle = NSLocalizedString("What is the highest level of education you have completed?", comment: "")
+    static let educationQId = "Education"
+    static let educationChoices: [TextQuestionChoice] = [
+            (NSLocalizedString("8th Grade or Less", comment: ""), "NoHighSchool", true),
+            (NSLocalizedString("More than 8th grade but did not graduate high school", comment: ""), "SomeHighSchool", true),
+            (NSLocalizedString("High school graduate or equivalent", comment: ""), "HighSchool", true),
+            (NSLocalizedString("Some College", comment: ""), "SomeCollege", true),
+            (NSLocalizedString("Graduate of Two Year College or Technical School", comment: ""), "TwoYearCollege", true),
+            (NSLocalizedString("Graduate of Four Year College", comment: ""), "FourYearCollege", true),
+            (NSLocalizedString("Post Graduate Studies", comment: ""), "PostGrad", true),
+            Survey.About.noAnswerChoice(forQuestionId: Survey.About.educationTitle)
         ]
 }
 
