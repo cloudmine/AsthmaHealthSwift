@@ -56,7 +56,17 @@ private extension Survey {
 private extension Survey.About {
 
     static var Task: ORKOrderedTask {
-        return ORKOrderedTask(identifier: info.rkIdentifier, steps: steps)
+        let task =  ORKNavigableOrderedTask(identifier: info.rkIdentifier, steps: steps)
+
+        let smokingStatus = ORKResultSelector(resultIdentifier: "ACMAboutYouSurveySmokingQuestion")
+        let notSmokePredicate = ORKResultPredicate.predicateForChoiceQuestionResultWithResultSelector(smokingStatus, expectedAnswerValues: ["ACMSmokingNeverChoice"])
+        let predicateRule = ORKPredicateStepNavigationRule(resultPredicates: [notSmokePredicate],
+                                                           destinationStepIdentifiers: ["ACMAboutYouSurveyInsuranceQuestion"],
+                                                           defaultStepIdentifier: nil,
+                                                           validateArrays: true)
+
+        task.setNavigationRule(predicateRule, forTriggerStepIdentifier: "ACMAboutYouSurveySmokingQuestion")
+        return task
     }
 
     static var steps: [ORKStep] {
