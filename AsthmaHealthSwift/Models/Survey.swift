@@ -61,7 +61,7 @@ private extension Survey.About {
 
     static var steps: [ORKStep] {
         return [ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion,
-                smokingQuestion, cigarettesQuestion, yearsQuestion]
+                smokingQuestion, cigarettesQuestion, yearsQuestion, insuranceQuestion]
     }
 
     static var ethnicityQuestion: ORKQuestionStep {
@@ -98,6 +98,10 @@ private extension Survey.About {
         return ORKQuestionStep(identifier: "ACMAboutYouSurveyYearsSmokingQuestion",
                                title: NSLocalizedString("How many years in total did you smoke?", comment: ""),
                                answer: format)
+    }
+
+    static var insuranceQuestion: ORKQuestionStep {
+        return Survey.textQuestion(withTitle: insuranceTitle, surveyId: surveyId, questionId: insuranceQId, choiceInfo: insuranceChoices)
     }
 }
 
@@ -162,6 +166,15 @@ private extension Survey.About {
             (NSLocalizedString("Never (<100 Cigarettes in lieftime)", comment: ""), "Never", true),
             (NSLocalizedString("Current", comment: ""), "Current", true),
             (NSLocalizedString("Former", comment: ""), "Former", true),
+        ]
+
+    static let insuranceTitle = NSLocalizedString("Do you have health insurance?", comment: "")
+    static let insuranceQId = "Insurance"
+    static let insuranceChoices: [TextQuestionChoice] = [
+            (NSLocalizedString("Private (bought by you or your employer", comment: ""), "Private", true),
+            (NSLocalizedString("Public (Medicare or Medicade", comment: ""), "Public", true),
+            (NSLocalizedString("I have no health insurance", comment: ""), "NoInsurance", true),
+            Survey.About.noAnswerChoice(forQuestionId: Survey.About.insuranceQId)
         ]
 }
 
