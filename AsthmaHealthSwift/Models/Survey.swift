@@ -60,7 +60,7 @@ private extension Survey.About {
     }
 
     static var steps: [ORKStep] {
-        return [ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion]
+        return [ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion, smokingQuestion]
     }
 
     static var ethnicityQuestion: ORKQuestionStep {
@@ -77,6 +77,10 @@ private extension Survey.About {
 
     static var educationQuestion: ORKQuestionStep {
         return Survey.textQuestion(withTitle: educationTitle, surveyId: surveyId, questionId: educationQId, choiceInfo: educationChoices)
+    }
+
+    static var smokingQuestion: ORKQuestionStep {
+        return Survey.textQuestion(withTitle: smokingTitle, surveyId: surveyId, questionId: smokingQId, choiceInfo: smokingChoices)
     }
 }
 
@@ -133,6 +137,14 @@ private extension Survey.About {
             (NSLocalizedString("Graduate of Four Year College", comment: ""), "FourYearCollege", true),
             (NSLocalizedString("Post Graduate Studies", comment: ""), "PostGrad", true),
             Survey.About.noAnswerChoice(forQuestionId: Survey.About.educationTitle)
+        ]
+
+    static let smokingTitle = NSLocalizedString("What is your smoking status?", comment: "")
+    static let smokingQId = "Smoking"
+    static let smokingChoices: [TextQuestionChoice] = [
+            (NSLocalizedString("Never (<100 Cigarettes in lieftime)", comment: ""), "Never", true),
+            (NSLocalizedString("Current", comment: ""), "Current", true),
+            (NSLocalizedString("Former", comment: ""), "Former", true),
         ]
 }
 
