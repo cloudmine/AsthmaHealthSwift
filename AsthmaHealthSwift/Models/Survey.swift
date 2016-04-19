@@ -60,7 +60,8 @@ private extension Survey.About {
     }
 
     static var steps: [ORKStep] {
-        return [ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion, smokingQuestion, cigarettesQuestion]
+        return [ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion,
+                smokingQuestion, cigarettesQuestion, yearsQuestion]
     }
 
     static var ethnicityQuestion: ORKQuestionStep {
@@ -88,6 +89,14 @@ private extension Survey.About {
 
         return ORKQuestionStep(identifier: "ACMAboutYouSurveyCigarettesQuestion",
                                title: NSLocalizedString("On average, how many cigarettes per day did you smoke daily?", comment: ""),
+                               answer: format)
+    }
+
+    static var yearsQuestion: ORKQuestionStep {
+        let format = ORKNumericAnswerFormat(style: .Integer, unit: NSLocalizedString("Years", comment: ""), minimum: 0, maximum: 100)
+
+        return ORKQuestionStep(identifier: "ACMAboutYouSurveyYearsSmokingQuestion",
+                               title: NSLocalizedString("How many years in total did you smoke?", comment: ""),
                                answer: format)
     }
 }
