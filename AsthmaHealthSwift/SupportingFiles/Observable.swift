@@ -56,3 +56,9 @@ infix operator <- { associativity right precedence 90 }
 func <-<T>(lhs: Observable<T>, rhs: T) {
     lhs.value = rhs
 }
+
+postfix operator & {}
+
+postfix func &<T>(obs: Observable<T>) -> T {
+    return obs.value
+}

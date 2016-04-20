@@ -20,13 +20,12 @@ class DashboardViewController: UIViewController, Observer {
             chart.dataSource = self
         }
 
-        self.refreshUI(withResults: mainPanel?.results.value)
-
         guard let mainPanel = mainPanel else {
             return
         }
 
-        //add(observer: self, observable: mainPanel.results) { (newResults) in
+        self.refreshUI(withResults: mainPanel.results&)
+
         observe(mainPanel.results) { (newResults) in
             self.refreshUI(withResults: newResults)
         }
