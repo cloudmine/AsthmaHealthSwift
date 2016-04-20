@@ -22,13 +22,21 @@ class DashboardViewController: UIViewController {
 
         self.refreshUI(withResults: mainPanel?.results.value)
 
-        mainPanel?.results.add(observer: self) { (newResults) in
+        guard let mainPanel = mainPanel else {
+            return
+        }
+
+        add(observer: self, observable: mainPanel.results) { (newResults) in
             self.refreshUI(withResults: newResults)
         }
     }
 
     deinit {
-        mainPanel?.results.remove(observer: self)
+        guard let mainPanel = mainPanel else {
+            return
+        }
+
+        remove(observer: self, observable: mainPanel.results)
     }
 }
 
