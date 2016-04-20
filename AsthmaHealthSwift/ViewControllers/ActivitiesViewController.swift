@@ -12,12 +12,7 @@ class ActivitiesViewController: UITableViewController, Observer {
         refresher.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         tableView.addSubview(refresher)
 
-        guard let mainPanel = mainPanel else {
-            return
-        }
-
-        //add(observer: self, observable: mainPanel.results) { _ in
-        observe(mainPanel.results) { _ in
+        observe(mainPanel?.results) { _ in
             onMainThread {
                 self.tableView.reloadData()
             }
@@ -25,11 +20,7 @@ class ActivitiesViewController: UITableViewController, Observer {
     }
 
     deinit {
-        guard let mainPanel = mainPanel else {
-            return
-        }
-
-        stopObserving(mainPanel.results)
+        stopObserving(mainPanel?.results)
     }
 }
 

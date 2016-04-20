@@ -20,23 +20,15 @@ class DashboardViewController: UIViewController, Observer {
             chart.dataSource = self
         }
 
-        guard let mainPanel = mainPanel else {
-            return
-        }
+        self.refreshUI(withResults: mainPanel?.results&)
 
-        self.refreshUI(withResults: mainPanel.results&)
-
-        observe(mainPanel.results) { (newResults) in
+        observe(mainPanel?.results) { (newResults) in
             self.refreshUI(withResults: newResults)
         }
     }
 
     deinit {
-        guard let mainPanel = mainPanel else {
-            return
-        }
-
-        stopObserving(mainPanel.results)
+        stopObserving(mainPanel?.results)
     }
 }
 
@@ -45,12 +37,7 @@ class DashboardViewController: UIViewController, Observer {
 private extension DashboardViewController {
 
     @IBAction func refreshDidPress(sender: UIButton) {
-        //mainPanel?.refresh()
-        guard let results = mainPanel?.results else {
-            return
-        }
-
-        stopObserving(results)
+        mainPanel?.refresh()
     }
 }
 

@@ -2,15 +2,19 @@
 protocol Observer: Equatable {}
 
 extension Observer {
-    func observe<T>(observable: Observable<T>, block: (newValue: T) -> ()) {
-        guard  !observable.has(observer: self) else {
+    func observe<T>(observable: Observable<T>?, block: (newValue: T) -> ()) {
+        guard let observable = observable where !observable.has(observer: self) else {
             return
         }
 
         observable.observers.append((self, block))
     }
 
-    func stopObserving<T>(observable: Observable<T>) {
+    func stopObserving<T>(observable: Observable<T>?) {
+        guard let observable = observable else {
+            return
+        }
+        
         observable.observers = observable.observers.filter { (obs, _) in
             guard let obs = obs as? Self else {
                 return true
@@ -59,6 +63,6 @@ func <-<T>(lhs: Observable<T>, rhs: T) {
 
 postfix operator & {}
 
-postfix func &<T>(obs: Observable<T>) -> T {
-    return obs.value
+postfix func &<T>(obs: Observable<T>?) -> T? {
+    return obs?.value
 }
