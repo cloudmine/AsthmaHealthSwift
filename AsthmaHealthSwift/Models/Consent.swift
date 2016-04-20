@@ -4,10 +4,10 @@ import CMHealth
 
 struct Consent {
 
-    static var Task: ORKOrderedTask {
+    static var TaskDocument: (task:ORKOrderedTask, document: ORKConsentDocument) {
         let document = self.document()
         let task = ORKOrderedTask(identifier: "TaskId", steps: steps(document: document))
-        return task
+        return (task, document)
     }
 }
 

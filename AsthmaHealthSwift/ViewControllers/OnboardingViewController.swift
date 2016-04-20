@@ -5,6 +5,7 @@ class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var joinButton: UIButton!
     private var consentResult: ORKTaskResult? = nil
+    private var consentDocument: ORKConsentDocument? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,31 +16,63 @@ class OnboardingViewController: UIViewController {
 }
 
 // MARK: Private
-extension OnboardingViewController {
+private extension OnboardingViewController {
 
-    private func signup(email email: String, password: String) {
+    func signup(email email: String, password: String) {
         CMHUser.currentUser().signUpWithEmail(email, password: password) { signupError in
             if let signupError = signupError {
                 "Error during signup".alert(in: self.presentedViewController, withError:signupError)
                 return
             }
 
-            CMHUser.currentUser().uploadUserConsent(self.consentResult, withCompletion: { (consent, uploadError) in
-                guard let _ = consent else {
+            CMHUser.currentUser().uploadUserConsent(self.consentResult){ (consent, uploadError) in
+                guard let consent = consent else {
                     "Error during signup while uploading consent".alert(in: self.presentedViewController, withError: uploadError)
                     return
                 }
 
-                guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
-                    fatalError("Unexpected App Delegate Class")
-                }
+                self.uploadPDF(fromConsent: consent) { pdfError in
+                    guard nil == pdfError else {
+                        "Error creating and uploading your consent PDF document".alert(in: self, withError: uploadError)
+                        return
+                    }
 
-                appDelegate.loadMainPanel()
-            })
+                    guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+                        fatalError("Unexpected App Delegate Class")
+                    }
+
+                    appDelegate.loadMainPanel()
+                }
+            }
         }
     }
 
-    private func login(email email: String, password: String) {
+    func uploadPDF(fromConsent consent: CMHConsent, block: (NSError?) -> ()) {
+        guard let consentDoc = self.consentDocument,
+            let signatureResult: ORKConsentSignatureResult = self.consentResult?.findResult() else {
+                fatalError("Consent Document/Signature unexpectedly not found")
+        }
+
+        signatureResult.applyToDocument(consentDoc)
+
+        consentDoc.makePDFWithCompletionHandler{ (pdfData, pdfError) in
+            guard let pdfData = pdfData else {
+                block(pdfError)
+                return
+            }
+
+            consent.uploadConsentPDF(pdfData){ pdfUploadError in
+                if let pdfUploadError = pdfUploadError {
+                    block(pdfUploadError)
+                    return
+                }
+
+                block(nil)
+            }
+        }
+    }
+
+    func login(email email: String, password: String) {
         CMHUser.currentUser().loginWithEmail(email, password: password) { error in
             if let error = error {
                 "Error logging in".alert(in: self.presentedViewController, withError: error)
@@ -60,7 +93,10 @@ extension OnboardingViewController {
 extension OnboardingViewController {
 
     @IBAction func didPressJoin(sender: UIButton) {
-        let consentVC = ORKTaskViewController(task: Consent.Task, restorationData: nil, delegate: self)
+        let (task, document) = Consent.TaskDocument
+        self.consentDocument = document
+
+        let consentVC = ORKTaskViewController(task: task, restorationData: nil, delegate: self)
         consentVC.view.tintColor = UIColor.acmBlue()
 
         presentViewController(consentVC, animated: true, completion: nil)
