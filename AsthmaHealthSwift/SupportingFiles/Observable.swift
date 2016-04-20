@@ -1,13 +1,12 @@
 
-/*
- *  Observer: Given type, can observer an observable, can tell you if it's equivalent to Observer of same type
- *
- */
-
 protocol Observer: Equatable {}
 
 extension Observer {
     func observe<T>(observable: Observable<T>, block: (newValue: T) -> ()) {
+        guard  !observable.has(observer: self) else {
+            return
+        }
+
         observable.observers.append((self, block))
     }
 
@@ -22,34 +21,7 @@ extension Observer {
     }
 }
 
-//func add<T>(observer observer:Any, observable: Observable<T>, block: (newValue: T) -> ()) {
-//    observable.observers.append((observer, block))
-//}
-
-//func remove<U:AnyObject,T>(observer observer:U, observable: Observable<T>) {
-//    observable.observers = observable.observers.filter { (obs, _) in
-//        guard let obs = obs as? U else {
-//            return true
-//        }
-//
-//        return obs !== observer
-//    }
-//}
-
-//func remove<U:Equatable,T>(observer observer:U, observable: Observable<T>) {
-//    observable.observers = observable.observers.filter { (obs, _) in
-//        guard let obs = obs as? U else {
-//            return true
-//        }
-//
-//        return obs != observer
-//    }
-//}
-
 final class Observable<T> {
-    //typealias Observer = Any<Equatable>
-    typealias ObservableBlock = (newValue: T) -> ()
-    typealias ObservablePair = (observer: Any, block: ObservableBlock)
 
     // MARK: Public Interface
 
@@ -62,25 +34,21 @@ final class Observable<T> {
         self.value = value
     }
 
-//    func add(observer observer: Observer, block: ObservableBlock) {
-//        guard !has(observer: observer) else {
-//            return
-//        }
-//
-//        observers.append((observer, block))
-//    }
-//
-//    func remove(observer observer: Observer) {
-//        observers = observers.filter { (obs, _) in obs !== observer }
-//    }
-
     // MARK: Private
 
-    var observers: [ObservablePair] = []
+    private typealias ObservableBlock = (newValue: T) -> ()
+    private typealias ObservablePair = (observer: Any, block: ObservableBlock)
+    private var observers: [ObservablePair] = []
 
-//    private func has(observer observer: Observer) -> Bool {
-//        return observers.reduce(false) { (acc, pair) in acc || pair.observer === observer }
-//    }
+    private func has<U:Observer>(observer observer: U) -> Bool {
+        for (obs, _) in observers {
+            if let obs = obs as? U where obs == observer {
+                return true
+            }
+        }
+
+        return false
+    }
 }
 
 infix operator <- { associativity right precedence 90 }
