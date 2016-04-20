@@ -1,7 +1,7 @@
 import UIKit
 import ResearchKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, Observer {
 
     @IBOutlet weak var aboutChart: ORKPieChartView!
     @IBOutlet weak var dailyChart: ORKPieChartView!
@@ -26,7 +26,8 @@ class DashboardViewController: UIViewController {
             return
         }
 
-        add(observer: self, observable: mainPanel.results) { (newResults) in
+        //add(observer: self, observable: mainPanel.results) { (newResults) in
+        observe(mainPanel.results) { (newResults) in
             self.refreshUI(withResults: newResults)
         }
     }
@@ -36,7 +37,7 @@ class DashboardViewController: UIViewController {
             return
         }
 
-        remove(observer: self, observable: mainPanel.results)
+        stopObserving(mainPanel.results)
     }
 }
 
@@ -45,7 +46,12 @@ class DashboardViewController: UIViewController {
 private extension DashboardViewController {
 
     @IBAction func refreshDidPress(sender: UIButton) {
-        mainPanel?.refresh()
+        //mainPanel?.refresh()
+        guard let results = mainPanel?.results else {
+            return
+        }
+
+        stopObserving(results)
     }
 }
 

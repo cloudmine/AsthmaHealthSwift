@@ -4,9 +4,27 @@
  *
  */
 
-func add<T>(observer observer:Any, observable: Observable<T>, block: (newValue: T) -> ()) {
-    observable.observers.append((observer, block))
+protocol Observer: Equatable {}
+
+extension Observer {
+    func observe<T>(observable: Observable<T>, block: (newValue: T) -> ()) {
+        observable.observers.append((self, block))
+    }
+
+    func stopObserving<T>(observable: Observable<T>) {
+        observable.observers = observable.observers.filter { (obs, _) in
+            guard let obs = obs as? Self else {
+                return true
+            }
+
+            return obs != self
+        }
+    }
 }
+
+//func add<T>(observer observer:Any, observable: Observable<T>, block: (newValue: T) -> ()) {
+//    observable.observers.append((observer, block))
+//}
 
 //func remove<U:AnyObject,T>(observer observer:U, observable: Observable<T>) {
 //    observable.observers = observable.observers.filter { (obs, _) in
@@ -18,18 +36,18 @@ func add<T>(observer observer:Any, observable: Observable<T>, block: (newValue: 
 //    }
 //}
 
-func remove<U:Equatable,T>(observer observer:U, observable: Observable<T>) {
-    observable.observers = observable.observers.filter { (obs, _) in
-        guard let obs = obs as? U else {
-            return true
-        }
-
-        return obs != observer
-    }
-}
+//func remove<U:Equatable,T>(observer observer:U, observable: Observable<T>) {
+//    observable.observers = observable.observers.filter { (obs, _) in
+//        guard let obs = obs as? U else {
+//            return true
+//        }
+//
+//        return obs != observer
+//    }
+//}
 
 final class Observable<T> {
-    //typealias Observer = Any
+    //typealias Observer = Any<Equatable>
     typealias ObservableBlock = (newValue: T) -> ()
     typealias ObservablePair = (observer: Any, block: ObservableBlock)
 

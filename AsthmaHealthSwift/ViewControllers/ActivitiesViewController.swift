@@ -1,7 +1,7 @@
 import UIKit
 import ResearchKit
 
-class ActivitiesViewController: UITableViewController {
+class ActivitiesViewController: UITableViewController, Observer {
 
     private let surveys = [Survey.About.info, Survey.Daily.info]
 
@@ -16,7 +16,8 @@ class ActivitiesViewController: UITableViewController {
             return
         }
 
-        add(observer: self, observable: mainPanel.results) { _ in
+        //add(observer: self, observable: mainPanel.results) { _ in
+        observe(mainPanel.results) { _ in
             onMainThread {
                 self.tableView.reloadData()
             }
@@ -28,7 +29,7 @@ class ActivitiesViewController: UITableViewController {
             return
         }
 
-        remove(observer: self, observable: mainPanel.results)
+        stopObserving(mainPanel.results)
     }
 }
 
