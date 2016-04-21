@@ -6,6 +6,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var signatureImage: UIImageView!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var viewConsentButton: UIButton!
 
@@ -156,9 +157,19 @@ private extension ProfileViewController {
             }
 
             self.consent = consent
-
             onMainThread {
                 self.viewConsentButton.enabled = true
+            }
+
+            consent.fetchSignatureImageWithCompletion{ (sigImage, error) in
+                guard let sigImage = sigImage else {
+                    print("Failed to fetch signature image: \(error?.localizedDescription)")
+                    return
+                }
+
+                onMainThread {
+                    self.signatureImage.image = sigImage
+                }
             }
         }
     }
