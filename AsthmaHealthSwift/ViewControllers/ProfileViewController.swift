@@ -10,6 +10,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var viewConsentButton: UIButton!
 
     private var consent: CMHConsent? = nil
+    private var cachedPDF: NSData? = nil
 
     private let mailViewController: MFMailComposeViewController? = {
         guard MFMailComposeViewController.canSendMail() else {
@@ -62,13 +63,18 @@ private extension ProfileViewController {
     }
 
     @IBAction func didPressConsentDocument(sender: UIButton) {
+        if let pdfData = cachedPDF {
+            present(pdf: pdfData)
+            return
+        }
+
         consent?.fetchConsentPDFWithCompletion { (pdfData, error) in
             guard let pdfData = pdfData else {
                 "There was an error downloading your consent document".alert(in: self, withError: error)
                 return
             }
 
-            print("Fetched PDF Data")
+            self.present(pdf: pdfData)
         }
     }
 
@@ -154,6 +160,16 @@ private extension ProfileViewController {
             onMainThread {
                 self.viewConsentButton.enabled = true
             }
+        }
+    }
+
+    func present(pdf pdfData: NSData) {
+        onMainThread {
+            guard let pdfView = ShowPDFViewController.showing(pdf: pdfData) else {
+                return
+            }
+
+            self.presentViewController(pdfView, animated: true, completion: nil)
         }
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lFN-Bu-SUx">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--ShowPDF View Controller-->
+        <scene sceneID="ovA-C1-gru">
+            <objects>
+                <viewController id="lFN-Bu-SUx" customClass="ShowPDFViewController" customModule="AsthmaHealthSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V3r-G8-nbb"/>
+                        <viewControllerLayoutGuide type="bottom" id="dwM-ak-7za"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QEZ-cg-1ld">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d65-a7-oDu">
+                                <rect key="frame" x="25" y="20" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonDidPress:" destination="lFN-Bu-SUx" eventType="touchUpInside" id="Umu-yG-HBI"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n8-bb-wOn">
+                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d65-a7-oDu" firstAttribute="top" secondItem="V3r-G8-nbb" secondAttribute="bottom" id="7GU-Xt-qnb"/>
+                            <constraint firstAttribute="trailing" secondItem="5n8-bb-wOn" secondAttribute="trailing" id="TVa-Sl-zVw"/>
+                            <constraint firstItem="dwM-ak-7za" firstAttribute="top" secondItem="5n8-bb-wOn" secondAttribute="bottom" id="aBd-OY-ny0"/>
+                            <constraint firstItem="d65-a7-oDu" firstAttribute="leading" secondItem="QEZ-cg-1ld" secondAttribute="leading" constant="25" id="bM8-Ff-6so"/>
+                            <constraint firstItem="5n8-bb-wOn" firstAttribute="top" secondItem="d65-a7-oDu" secondAttribute="bottom" constant="8" id="qTX-kh-XRw"/>
+                            <constraint firstItem="5n8-bb-wOn" firstAttribute="leading" secondItem="QEZ-cg-1ld" secondAttribute="leading" id="y3V-Yu-Xjw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5n8-bb-wOn" id="XHP-Ja-BvJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tYF-S0-2fn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683" y="423"/>
+        </scene>
+    </scenes>
+</document>

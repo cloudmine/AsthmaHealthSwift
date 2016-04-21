@@ -25,6 +25,8 @@
 		B49341851CC6CF800010150B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49341841CC6CF800010150B /* DashboardViewController.swift */; };
 		B49639371CC6D8CE00A88E71 /* Array+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49639361CC6D8CE00A88E71 /* Array+AHS.swift */; };
 		B49639391CC8239600A88E71 /* ORKCollectionResult+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49639381CC8239600A88E71 /* ORKCollectionResult+AHS.swift */; };
+		B496393B1CC92F8A00A88E71 /* ShowPDF.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B496393A1CC92F8A00A88E71 /* ShowPDF.storyboard */; };
+		B496393D1CC9300300A88E71 /* ShowPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B496393C1CC9300300A88E71 /* ShowPDFViewController.swift */; };
 		B4AC68401CB596600094861A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC683F1CB596600094861A /* AppDelegate.swift */; };
 		B4AC68421CB596600094861A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC68411CB596600094861A /* OnboardingViewController.swift */; };
 		B4AC68471CB596600094861A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AC68461CB596600094861A /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 		B49341841CC6CF800010150B /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B49639361CC6D8CE00A88E71 /* Array+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+AHS.swift"; sourceTree = "<group>"; };
 		B49639381CC8239600A88E71 /* ORKCollectionResult+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ORKCollectionResult+AHS.swift"; sourceTree = "<group>"; };
+		B496393A1CC92F8A00A88E71 /* ShowPDF.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowPDF.storyboard; sourceTree = "<group>"; };
+		B496393C1CC9300300A88E71 /* ShowPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPDFViewController.swift; sourceTree = "<group>"; };
 		B4AC683C1CB596600094861A /* AsthmaHealthSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealthSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC683F1CB596600094861A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AC68411CB596600094861A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				B49341801CC6CAA40010150B /* Dashboard.storyboard */,
 				B4F14AE41CBECFCC0047C57E /* Learn.storyboard */,
 				B4271DA61CB8228000AA035F /* Profile.storyboard */,
+				B496393A1CC92F8A00A88E71 /* ShowPDF.storyboard */,
 				B4F14AEE1CBEE1AC0047C57E /* ActivityCell.swift */,
 				B493417E1CC55DD50010150B /* LoadingOverlay.swift */,
 			);
@@ -152,8 +157,9 @@
 				B4AC68411CB596600094861A /* OnboardingViewController.swift */,
 				B49341781CC13E580010150B /* MainPanelViewController.swift */,
 				B4F14AEA1CBED6BE0047C57E /* ActivitiesViewController.swift */,
-				B4F14ADC1CB827810047C57E /* ProfileViewController.swift */,
 				B49341841CC6CF800010150B /* DashboardViewController.swift */,
+				B4F14ADC1CB827810047C57E /* ProfileViewController.swift */,
+				B496393C1CC9300300A88E71 /* ShowPDFViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 			files = (
 				B4271DA51CB8222600AA035F /* MainPanel.storyboard in Resources */,
 				B4F14AE71CBED5C60047C57E /* Activities.storyboard in Resources */,
+				B496393B1CC92F8A00A88E71 /* ShowPDF.storyboard in Resources */,
 				B4AC68471CB596600094861A /* Assets.xcassets in Resources */,
 				B4F14AE51CBECFCC0047C57E /* Learn.storyboard in Resources */,
 				B49341811CC6CAA40010150B /* Dashboard.storyboard in Resources */,
@@ -472,6 +479,7 @@
 				B49639371CC6D8CE00A88E71 /* Array+AHS.swift in Sources */,
 				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
 				B4F14AE11CB8899B0047C57E /* String+AHS.swift in Sources */,
+				B496393D1CC9300300A88E71 /* ShowPDFViewController.swift in Sources */,
 				B493417F1CC55DD50010150B /* LoadingOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
