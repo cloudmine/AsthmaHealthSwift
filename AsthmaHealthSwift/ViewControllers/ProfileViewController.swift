@@ -7,6 +7,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var viewConsentButton: UIButton!
 
     private let mailViewController: MFMailComposeViewController? = {
         guard MFMailComposeViewController.canSendMail() else {
@@ -24,7 +25,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logOutButton.setBorder(width: 1.0, corderRadius: 4.0)
+        [logOutButton, viewConsentButton].forEach { $0.setBorder(width: 1.0, corderRadius: 4.0) }
         nameLabel.text = ""
         emailLabel.text = ""
         mailViewController?.mailComposeDelegate = self
@@ -54,6 +55,10 @@ private extension ProfileViewController {
 
             appDelegate.loadOnboarding()
         }
+    }
+
+    @IBAction func didPressConsentDocument(sender: UIButton) {
+        print("Consent")
     }
 
     @IBAction func didPressWeb(sender: UIButton) {
