@@ -162,7 +162,7 @@
                                                     <constraint firstAttribute="height" constant="47" id="ba6-pq-3od"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTe-Ea-KSK">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTe-Ea-KSK">
                                                 <rect key="frame" x="205.5" y="183" width="190" height="37"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="190" id="3Ol-RN-pmo"/>

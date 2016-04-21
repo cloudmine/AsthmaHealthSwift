@@ -9,6 +9,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var viewConsentButton: UIButton!
 
+    private var consent: CMHConsent? = nil
+
     private let mailViewController: MFMailComposeViewController? = {
         guard MFMailComposeViewController.canSendMail() else {
             return nil
@@ -31,6 +33,8 @@ class ProfileViewController: UIViewController {
         mailViewController?.mailComposeDelegate = self
 
         CMHUser.currentUser().addObserver(self, forKeyPath: "userData", options: NSKeyValueObservingOptions.Initial.union(.New), context: nil)
+
+        fetchConsent()
     }
 
     deinit {
@@ -58,7 +62,14 @@ private extension ProfileViewController {
     }
 
     @IBAction func didPressConsentDocument(sender: UIButton) {
-        print("Consent")
+        consent?.fetchConsentPDFWithCompletion { (pdfData, error) in
+            guard let pdfData = pdfData else {
+                "There was an error downloading your consent document".alert(in: self, withError: error)
+                return
+            }
+
+            print("Fetched PDF Data")
+        }
     }
 
     @IBAction func didPressWeb(sender: UIButton) {
@@ -127,6 +138,21 @@ private extension ProfileViewController {
             if let given = userData.givenName,
                 let family = userData.familyName {
                 self.nameLabel.text = "\(given) \(family)"
+            }
+        }
+    }
+
+    func fetchConsent() {
+        CMHUser.currentUser().fetchUserConsentForStudyWithCompletion { (consent, error) in
+            guard let consent = consent else {
+                print("Error fetching consent: \(error?.localizedDescription)")
+                return
+            }
+
+            self.consent = consent
+
+            onMainThread {
+                self.viewConsentButton.enabled = true
             }
         }
     }
