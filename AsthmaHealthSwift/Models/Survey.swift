@@ -22,7 +22,7 @@ struct Survey {
         static let info: SurveyInfo = SurveyInfo(displayName: NSLocalizedString("About You", comment: ""),
                                                  rkIdentifier: "ACMAboutYouSurveyTask",
                                                  frequency: .OneTime,
-                                                 questionCount: 8)
+                                                 questionCount: 9)
     }
 
     struct Daily {
@@ -70,8 +70,21 @@ private extension Survey.About {
     }
 
     static var steps: [ORKStep] {
-        return [ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion,
+        return [birthQuestion, ethnicityQuestion, raceQuestion, incomeQuestion, educationQuestion,
                 smokingQuestion, cigarettesQuestion, yearsQuestion, insuranceQuestion]
+    }
+
+    static var birthQuestion: ORKQuestionStep {
+        let jan1900 = NSDate(timeIntervalSince1970: -2208970800)
+        let jan1985 = NSDate(timeIntervalSince1970: 473403600)
+        let jan2004 = NSDate(timeIntervalSince1970: 1072933200)
+
+        let format = ORKDateAnswerFormat(style: .Date, defaultDate: jan1985, minimumDate: jan1900, maximumDate:jan2004, calendar: nil)
+
+        return ORKQuestionStep(identifier: "ACMAboutYouBirthQuestion",
+                               title: NSLocalizedString("What is your date of birth?", comment: ""),
+                               text: nil,
+                               answer: format)
     }
 
     static var ethnicityQuestion: ORKQuestionStep {
