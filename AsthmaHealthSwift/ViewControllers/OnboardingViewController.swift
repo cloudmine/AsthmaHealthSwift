@@ -94,7 +94,7 @@ extension OnboardingViewController {
 
     @IBAction func didPressJoin(sender: UIButton) {
         let (task, document) = Consent.TaskDocument
-        self.consentDocument = document
+        self.consentDocument = document.copy() as? ORKConsentDocument
 
         let consentVC = ORKTaskViewController(task: task, restorationData: nil, delegate: self)
         consentVC.view.tintColor = UIColor.acmBlue()

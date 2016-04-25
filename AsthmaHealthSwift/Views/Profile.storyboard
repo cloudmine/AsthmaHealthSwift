@@ -184,7 +184,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M5s-be-yPk">
-                                                <rect key="frame" x="108" y="80" width="135" height="45"/>
+                                                <rect key="frame" x="104" y="80" width="135" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="M5s-be-yPk" secondAttribute="height" multiplier="4:1" id="BHO-m9-K7W"/>
                                                     <constraint firstAttribute="width" constant="240" id="Ire-IH-mn1"/>
@@ -234,7 +234,7 @@
                                             <constraint firstAttribute="trailing" secondItem="2eB-aa-qWy" secondAttribute="trailing" constant="42" id="cIh-yJ-yvh"/>
                                             <constraint firstItem="HLM-kc-vgw" firstAttribute="top" secondItem="PoR-Xc-DoV" secondAttribute="top" constant="20" id="e0x-sZ-HoB"/>
                                             <constraint firstItem="hBR-lK-SgR" firstAttribute="top" secondItem="gE6-84-N4z" secondAttribute="bottom" constant="2" id="e8P-8D-4cB"/>
-                                            <constraint firstItem="M5s-be-yPk" firstAttribute="leading" secondItem="hBR-lK-SgR" secondAttribute="leading" constant="-8" id="hZt-b6-jp3"/>
+                                            <constraint firstItem="M5s-be-yPk" firstAttribute="leading" secondItem="hBR-lK-SgR" secondAttribute="leading" constant="-12" id="hZt-b6-jp3"/>
                                             <constraint firstItem="1uD-4S-GZO" firstAttribute="top" secondItem="LhY-6h-RIX" secondAttribute="bottom" constant="10" id="lQN-yg-2VK"/>
                                             <constraint firstAttribute="bottom" secondItem="LhY-6h-RIX" secondAttribute="bottom" constant="20" symbolic="YES" id="lRE-4W-jvB"/>
                                             <constraint firstItem="M5s-be-yPk" firstAttribute="top" secondItem="hBR-lK-SgR" secondAttribute="bottom" constant="8" id="lSX-pF-L0p"/>
