@@ -1,8 +1,14 @@
-🚨 THIS DEMO APP IS A WORK IN PROGRESS 🚨
-
 # AsthmaHealthSwift
 
 A demo application that showcases the CloudMine [CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS) interface for Apple [ResearchKit](http://researchkit.org/) used in a Swift-only project.
+
+## CMHealth iOS SDK and ResearchKit
+
+ResearchKit is an Apple framework geared toward the applications of medical researchers.  By itself, ResearchKit is a powerful tool for managing patient consent flows and charting patient activities.  However, ResearchKit provides no mechanisms for storing the patient consent documents or other data it generates.  This is where CloudMine and the [CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS) step in.
+
+The [CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS) uses the [CloudMine](http://cloudmineinc.com/) [Connected Health Cloud](cloudmineinc.com/platform/developer-tools/) to manage the user and data needs of ResearchKit applications.  Through the [CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS), your application can create patient accounts in the cloud, store consent documents and survey data associated with that patient, and even send the patient an email if they forget their password.  Application developers can further leverage patient data using either the [CloudMine iOS SDK](https://cloudmine.io/docs/#/ios) within the application itself, or create a patient portal using the [CloudMine JavaScript SDK](https://cloudmine.io/docs/#/javascript).  In all cases, the data is stored on the [CloudMine Connected Health Cloud]([CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS)), a HIPAA HITECH compliant cloud data platform for healthcare.
+
+The [CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS) is built to work seamlessly with [Swift](https://swift.org/), Apple's open source language for building apps on their platforms. If your ResearchKit app is built using Swift, you'll be able to use CMHealth while still writing efficient, idiomatic code. 
 
 ## Getting Started
 
