@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logOutButton.setBorder(width: 1.0, corderRadius: 4.0)
+        logOutButton.setBorder(width: 1.0, cornerRadius: 4.0)
         nameLabel.text = ""
         emailLabel.text = ""
         mailViewController?.mailComposeDelegate = self

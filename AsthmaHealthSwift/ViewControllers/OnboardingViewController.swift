@@ -9,7 +9,7 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        joinButton.setBorder(width: 1.0, corderRadius: 4.0)
+        joinButton.setBorder(width: 1.0, cornerRadius: 4.0)
         removeNavigationBarDropShadow()
     }
 }
