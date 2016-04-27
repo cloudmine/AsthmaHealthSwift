@@ -44,7 +44,7 @@ private extension ProfileViewController {
     @IBAction func didPressLogOut(sender: UIButton) {
         CMHUser.currentUser().logoutWithCompletion { error in
             if let error = error {
-                "Error logging out".alert(in: self, withError: error)
+                alert(localizedMessage: NSLocalizedString("Error logging out", comment: ""), inViewController: self, withError: error)
                 return
             }
 
@@ -66,7 +66,7 @@ private extension ProfileViewController {
 
     @IBAction func didPressEmail(sender: UIButton) {
         guard let mailViewController = mailViewController else {
-            "The mail app is not configured on your device.".alert(in: self)
+            alert(localizedMessage: NSLocalizedString("The mail app is not configured on your device.", comment: ""), inViewController: self)
             return
         }
 
@@ -101,12 +101,12 @@ extension ProfileViewController: MFMailComposeViewControllerDelegate {
         dismissViewControllerAnimated(true, completion: nil)
 
         guard nil == error else {
-            "Error sending email".alert(in: self, withError: error)
+            alert(localizedMessage: NSLocalizedString("Error sending email", comment: ""), inViewController: self, withError: error)
             return
         }
 
         if MFMailComposeResultSent == result {
-            "Thank you for your feedback!".alert(in: self)
+            alert(localizedMessage: "Thank you for your feedback!", inViewController: self)
         }
     }
 }

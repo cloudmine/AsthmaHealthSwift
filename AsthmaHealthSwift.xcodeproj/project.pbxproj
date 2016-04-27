@@ -31,7 +31,6 @@
 		B4AC68601CB596600094861A /* AsthmaHealthSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC685F1CB596600094861A /* AsthmaHealthSwiftUITests.swift */; };
 		B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADC1CB827810047C57E /* ProfileViewController.swift */; };
 		B4F14ADF1CB887320047C57E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14ADE1CB887320047C57E /* Utilities.swift */; };
-		B4F14AE11CB8899B0047C57E /* String+AHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F14AE01CB8899B0047C57E /* String+AHS.swift */; };
 		B4F14AE31CBEAEBB0047C57E /* cloudmine-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */; };
 		B4F14AE51CBECFCC0047C57E /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE41CBECFCC0047C57E /* Learn.storyboard */; };
 		B4F14AE71CBED5C60047C57E /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F14AE61CBED5C60047C57E /* Activities.storyboard */; };
@@ -90,7 +89,6 @@
 		B4AC68611CB596600094861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4F14ADC1CB827810047C57E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B4F14ADE1CB887320047C57E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		B4F14AE01CB8899B0047C57E /* String+AHS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AHS.swift"; sourceTree = "<group>"; };
 		B4F14AE21CBEAEBB0047C57E /* cloudmine-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloudmine-logo.png"; sourceTree = "<group>"; };
 		B4F14AE41CBECFCC0047C57E /* Learn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		B4F14AE61CBED5C60047C57E /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				B4271D9A1CB6CACD00AA035F /* UIViewController+AHS.swift */,
 				B4271DA01CB6EFD300AA035F /* UIColor+AHS.swift */,
 				B4271DA21CB6F0CF00AA035F /* UIButton+AHS.swift */,
-				B4F14AE01CB8899B0047C57E /* String+AHS.swift */,
 				B493417C1CC54AFF0010150B /* NSDate+AHS.swift */,
 				B49639361CC6D8CE00A88E71 /* Array+AHS.swift */,
 			);
@@ -467,7 +464,6 @@
 				B4F14ADD1CB827810047C57E /* ProfileViewController.swift in Sources */,
 				B49639371CC6D8CE00A88E71 /* Array+AHS.swift in Sources */,
 				B4AC68401CB596600094861A /* AppDelegate.swift in Sources */,
-				B4F14AE11CB8899B0047C57E /* String+AHS.swift in Sources */,
 				B493417F1CC55DD50010150B /* LoadingOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
