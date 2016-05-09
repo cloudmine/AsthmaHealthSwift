@@ -91,7 +91,7 @@ extension ActivitiesViewController: ORKTaskViewControllerDelegate {
         dismissViewControllerAnimated(true, completion: nil)
 
         guard nil == error else {
-            "Error completing survey".alert(in: self, withError: error)
+            alert(localizedMessage: NSLocalizedString( "Error completing survey", comment: ""), inViewController: self, withError: error)
             return
         }
 
