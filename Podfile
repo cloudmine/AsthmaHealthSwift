@@ -1,14 +1,16 @@
 platform :ios, '9.0'
-use_frameworks!
-
 target 'AsthmaHealthSwift' do
-pod 'CMHealth', :git => 'https://github.com/cloudmine/CMHealthSDK-iOS'
-end
+  use_frameworks!
 
-target 'AsthmaHealthSwiftTests' do
+  #pod 'CMHealth', '~> 0.4'
+  pod 'CMHealth', :path => "../CMHealthSDK-iOS"
 
-end
+  target 'AsthmaHealthSwiftTests' do
+    inherit! :search_paths
+  end
 
-target 'AsthmaHealthSwiftUITests' do
+  target 'AsthmaHealthSwiftUITests' do
+    inherit! :search_paths
+  end
 
 end

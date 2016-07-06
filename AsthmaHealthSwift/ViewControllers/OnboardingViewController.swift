@@ -67,10 +67,7 @@ extension OnboardingViewController {
     }
 
     @IBAction func didPressLogin(sender: UIButton) {
-        let loginVC = CMHAuthViewController.loginViewController()
-        loginVC.delegate = self
 
-        presentViewController(loginVC, animated: true, completion: nil)
     }
 }
 
@@ -89,31 +86,8 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
             return
         }
 
-        consentResult = taskViewController.result
-        let signupVC = CMHAuthViewController.signupViewController()
-        signupVC.delegate = self
-        presentViewController(signupVC, animated: true, completion: nil)
-    }
-}
-
-// MARK: CMHAuthViewDelegate
-
-extension OnboardingViewController: CMHAuthViewDelegate {
-
-    func authViewOfType(authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
-        switch authType {
-        case .Signup:
-            signup(email: email, password: password)
-        case .Login:
-            login(email: email, password: password)
-        }
-    }
-
-    func authViewCancelledType(authType: CMHAuthType) {
-        guard let _ = presentedViewController as? CMHAuthViewController else {
-            return
-        }
-
-        dismissViewControllerAnimated(true, completion: nil)
+        let onboardingResult = taskViewController.result
+        print(onboardingResult)
+        // TODO: sign up with results
     }
 }
