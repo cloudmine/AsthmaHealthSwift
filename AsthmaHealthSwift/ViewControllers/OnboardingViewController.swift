@@ -38,21 +38,6 @@ extension OnboardingViewController {
             })
         }
     }
-
-    private func login(email email: String, password: String) {
-        CMHUser.currentUser().loginWithEmail(email, password: password) { error in
-            if let error = error {
-                alert(localizedMessage: NSLocalizedString("Error logging in", comment: ""), inViewController: self, withError: error)
-                return
-            }
-
-            guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
-                fatalError("Unexpected App Delegate Class")
-            }
-
-            appDelegate.loadMainPanel()
-        }
-    }
 }
 
 // MARK: Target-Action
@@ -67,7 +52,13 @@ extension OnboardingViewController {
     }
 
     @IBAction func didPressLogin(sender: UIButton) {
+        let loginVC = CMHLoginViewController(title: NSLocalizedString("Login", comment: ""),
+                                             text: NSLocalizedString("Please log in to you account to store and access your research data.", comment: ""),
+                                             delegate: self)
 
+        loginVC.view.tintColor = UIColor.acmBlue()
+
+        presentViewController(loginVC, animated: true, completion: nil)
     }
 }
 
@@ -89,5 +80,27 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         let onboardingResult = taskViewController.result
         print(onboardingResult)
         // TODO: sign up with results
+    }
+}
+
+// MARK: CMHLoginViewControllerDelegate
+
+extension OnboardingViewController: CMHLoginViewControllerDelegate {
+
+    func loginViewControllerCancelled(viewController: CMHLoginViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func loginViewController(viewController: CMHLoginViewController, didLogin success: Bool, error: NSError?) {
+        guard success else {
+            alert(localizedMessage: NSLocalizedString("Sign In Failure", comment:""), inViewController: viewController, withError: error)
+            return
+        }
+
+        guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            fatalError("Unexpected App Delegate Class")
+        }
+
+        appDelegate.loadMainPanel()
     }
 }
