@@ -16,7 +16,7 @@ struct Consent {
 private extension Consent {
 
     static func steps(document doc:ORKConsentDocument) -> [ORKStep] {
-        return [visualStep(document: doc), sharingStep(), reviewStep(document: doc)]
+        return [visualStep(document: doc), sharingStep(), reviewStep(document: doc), registrationStep()]
     }
 
     static func visualStep(document doc:ORKConsentDocument) -> ORKVisualConsentStep {
@@ -35,6 +35,11 @@ private extension Consent {
         step.reasonForConsent = ConsentReason
         return step
     }
+
+    static func registrationStep() -> ORKRegistrationStep {
+        let options = ORKRegistrationStepOption.IncludeGivenName.union(.IncludeFamilyName).union(.IncludeGender).union(.IncludeDOB)
+        return ORKRegistrationStep(identifier: "RegistrationId", title: NSLocalizedString("Registration", comment: ""), text: NSLocalizedString("Create an account", comment: ""), options: options)
+    }
 }
 
 // MARK: Consent Document
@@ -52,7 +57,9 @@ private extension Consent {
     }
 
     static var signature: ORKConsentSignature {
-        return ORKConsentSignature(forPersonWithTitle: nil, dateFormatString: nil, identifier: "SigId")
+        let sig =  ORKConsentSignature(forPersonWithTitle: nil, dateFormatString: nil, identifier: "SigId")
+        sig.requiresName = false
+        return sig
     }
 }
 

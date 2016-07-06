@@ -17,14 +17,14 @@ class OnboardingViewController: UIViewController {
 // MARK: Private
 extension OnboardingViewController {
 
-    private func signup(email email: String, password: String) {
-        CMHUser.currentUser().signUpWithEmail(email, password: password) { signupError in
-            if let signupError = signupError {
+    private func signup(onboardingResult result: ORKTaskResult) {
+        CMHUser.currentUser().signUpWithRegistration(result) { signupError in
+            guard nil == signupError else {
                 alert(localizedMessage: NSLocalizedString("Error during signup", comment: ""), inViewController: self, withError: signupError)
                 return
             }
 
-            CMHUser.currentUser().uploadUserConsent(self.consentResult, withCompletion: { (consent, uploadError) in
+            CMHUser.currentUser().uploadUserConsent(result) { consent, uploadError in
                 guard let _ = consent else {
                     alert(localizedMessage: NSLocalizedString("Error during signup while uploading consent", comment: ""), inViewController: self, withError: uploadError)
                     return
@@ -35,7 +35,7 @@ extension OnboardingViewController {
                 }
 
                 appDelegate.loadMainPanel()
-            })
+            }
         }
     }
 }
@@ -77,9 +77,7 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
             return
         }
 
-        let onboardingResult = taskViewController.result
-        print(onboardingResult)
-        // TODO: sign up with results
+        signup(onboardingResult: taskViewController.result)
     }
 }
 
