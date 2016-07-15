@@ -75,7 +75,7 @@ extension ActivitiesViewController {
         }
 
         let surveyVC = ORKTaskViewController(task: task, restorationData: nil, delegate: self)
-        presentViewController(surveyVC, animated: true, completion: nil)
+        present(surveyVC, animated: true, completion: nil)
     }
 }
 
@@ -83,7 +83,7 @@ extension ActivitiesViewController {
 
 extension ActivitiesViewController: ORKTaskViewControllerDelegate {
 
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         guard presentedViewController == taskViewController else {
             return
         }
@@ -95,7 +95,7 @@ extension ActivitiesViewController: ORKTaskViewControllerDelegate {
             return
         }
 
-        guard case .Completed = reason else {
+        guard case .completed = reason else {
             return
         }
 

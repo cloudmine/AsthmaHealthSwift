@@ -14,10 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         CMHealth.setAppIdentifier(Secrets.AppId, appSecret: Secrets.APIKey)
 
-        CMHUser
-
-        if CMHUser.currentUser().isLoggedIn {
-            print("Logged in as \(CMHUser.currentUser())")
+        if CMHUser.current().isLoggedIn {
+            print("Logged in as \(CMHUser.current())")
             loadMainPanel()
         } else {
             loadOnboarding()

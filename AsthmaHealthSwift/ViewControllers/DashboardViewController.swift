@@ -15,7 +15,7 @@ class DashboardViewController: UIViewController, Observer {
         aboutChart.title = NSLocalizedString("About Your Survey", comment: "")
         dailyChart.title = NSLocalizedString("Daily Surveys (Today)", comment: "")
 
-        [aboutChart, dailyChart].forEach { chart in
+        [aboutChart!, dailyChart!].forEach { chart in
             chart.showsTitleAboveChart = true
             chart.dataSource = self
         }
@@ -45,15 +45,15 @@ private extension DashboardViewController {
 
 extension DashboardViewController: ORKPieChartViewDataSource {
 
-    func numberOfSegmentsInPieChartView(_ pieChartView: ORKPieChartView) -> Int {
+    func numberOfSegments(in pieChartView: ORKPieChartView) -> Int {
         return 1
     }
 
-    func pieChartView(_ pieChartView: ORKPieChartView, valueForSegmentAtIndex index: Int) -> CGFloat {
+    func pieChartView(_ pieChartView: ORKPieChartView, valueForSegmentAt index: Int) -> CGFloat {
         return 1.0
     }
 
-    func pieChartView(_ pieChartView: ORKPieChartView, titleForSegmentAtIndex index: Int) -> String {
+    func pieChartView(_ pieChartView: ORKPieChartView, titleForSegmentAt index: Int) -> String {
         if pieChartView == aboutChart && hasCompletedAbout
             || pieChartView == dailyChart && hasCompletedDaily {
 
@@ -63,14 +63,14 @@ extension DashboardViewController: ORKPieChartViewDataSource {
         return NSLocalizedString("Incomplete", comment: "")
     }
 
-    func pieChartView(_ pieChartView: ORKPieChartView, colorForSegmentAtIndex index: Int) -> UIColor {
+    func pieChartView(_ pieChartView: ORKPieChartView, colorForSegmentAt index: Int) -> UIColor {
         if pieChartView == aboutChart && hasCompletedAbout {
             return UIColor.acmOneTime()
         } else if pieChartView == dailyChart && hasCompletedDaily {
             return UIColor.acmDaily()
         }
 
-        return UIColor.redColor()
+        return UIColor.red()
     }
 }
 

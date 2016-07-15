@@ -23,7 +23,7 @@ extension MainPanelViewController {
     func upload(result: ORKTaskResult) {
         loadingOverlay?.show(loading: true)
 
-        result.cmh_saveWithCompletion { (status, error) in
+        result.cmh_save { (status, error) in
             self.loadingOverlay?.show(loading: false)
             
             guard let _ = status else {
@@ -38,14 +38,14 @@ extension MainPanelViewController {
     func refresh() {
         loadingOverlay?.show(loading: true)
 
-        ORKTaskResult.cmh_fetchUserResultsForStudyWithIdentifier(Survey.Daily.info.rkIdentifier) { (dailyResults, dailyError) in
+        ORKTaskResult.cmh_fetchUserResultsForStudy(withIdentifier: Survey.Daily.info.rkIdentifier) { (dailyResults, dailyError) in
             guard let dailyResults = dailyResults as? [ORKTaskResult] else {
                 self.loadingOverlay?.show(loading: false)
                 alert(localizedMessage: NSLocalizedString("Error fetching past daily results", comment: ""), inViewController: self, withError: dailyError)
                 return
             }
 
-            ORKTaskResult.cmh_fetchUserResultsForStudyWithIdentifier(Survey.About.info.rkIdentifier) { (aboutResults, aboutError) in
+            ORKTaskResult.cmh_fetchUserResultsForStudy(withIdentifier: Survey.About.info.rkIdentifier) { (aboutResults, aboutError) in
                 self.loadingOverlay?.show(loading: false)
 
                 guard let aboutResults = aboutResults as? [ORKTaskResult] else {

@@ -29,11 +29,11 @@ class ProfileViewController: UIViewController {
         emailLabel.text = ""
         mailViewController?.mailComposeDelegate = self
 
-        CMHUser.currentUser().addObserver(self, forKeyPath: "userData", options: NSKeyValueObservingOptions.Initial.union(.New), context: nil)
+        CMHUser.current().addObserver(self, forKeyPath: "userData", options: NSKeyValueObservingOptions.initial.union(.new), context: nil)
     }
 
     deinit {
-        CMHUser.currentUser().removeObserver(self, forKeyPath: "userData")
+        CMHUser.current().removeObserver(self, forKeyPath: "userData")
     }
 }
 
@@ -42,13 +42,13 @@ class ProfileViewController: UIViewController {
 private extension ProfileViewController {
 
     @IBAction func didPressLogOut(_ sender: UIButton) {
-        CMHUser.currentUser().logoutWithCompletion { error in
+        CMHUser.current().logout { error in
             if let error = error {
                 alert(localizedMessage: NSLocalizedString("Error logging out", comment: ""), inViewController: self, withError: error)
                 return
             }
 
-            guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            guard let appDelegate = UIApplication.shared().delegate as? AppDelegate else {
                 fatalError("Unexpected App Delegate Class")
             }
 

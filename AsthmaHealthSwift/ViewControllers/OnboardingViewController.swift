@@ -18,19 +18,19 @@ class OnboardingViewController: UIViewController {
 extension OnboardingViewController {
 
     private func signup(onboardingResult result: ORKTaskResult) {
-        CMHUser.currentUser().signUpWithRegistration(result) { signupError in
+        CMHUser.current().signUp(withRegistration: result) { signupError in
             guard nil == signupError else {
                 alert(localizedMessage: NSLocalizedString("Error during signup", comment: ""), inViewController: self, withError: signupError)
                 return
             }
 
-            CMHUser.currentUser().uploadUserConsent(result) { consent, uploadError in
+            CMHUser.current().uploadUserConsent(result) { consent, uploadError in
                 guard let _ = consent else {
                     alert(localizedMessage: NSLocalizedString("Error during signup while uploading consent", comment: ""), inViewController: self, withError: uploadError)
                     return
                 }
 
-                guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+                guard let appDelegate = UIApplication.shared().delegate as? AppDelegate else {
                     fatalError("Unexpected App Delegate Class")
                 }
 
@@ -48,7 +48,7 @@ extension OnboardingViewController {
         let consentVC = ORKTaskViewController(task: Consent.Task, restorationData: nil, delegate: self)
         consentVC.view.tintColor = UIColor.acmBlue()
 
-        presentViewController(consentVC, animated: true, completion: nil)
+        present(consentVC, animated: true, completion: nil)
     }
 
     @IBAction func didPressLogin(_ sender: UIButton) {
@@ -58,7 +58,7 @@ extension OnboardingViewController {
 
         loginVC.view.tintColor = UIColor.acmBlue()
 
-        presentViewController(loginVC, animated: true, completion: nil)
+        present(loginVC, animated: true, completion: nil)
     }
 }
 
@@ -66,14 +66,14 @@ extension OnboardingViewController {
 
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         guard presentedViewController == taskViewController else {
             return
         }
 
         dismiss(animated: true, completion: nil)
 
-        guard case .Completed = reason else {
+        guard case .completed = reason else {
             return
         }
 
