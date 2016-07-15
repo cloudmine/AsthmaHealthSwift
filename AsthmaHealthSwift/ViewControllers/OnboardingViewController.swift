@@ -44,14 +44,14 @@ extension OnboardingViewController {
 
 extension OnboardingViewController {
 
-    @IBAction func didPressJoin(sender: UIButton) {
+    @IBAction func didPressJoin(_ sender: UIButton) {
         let consentVC = ORKTaskViewController(task: Consent.Task, restorationData: nil, delegate: self)
         consentVC.view.tintColor = UIColor.acmBlue()
 
         presentViewController(consentVC, animated: true, completion: nil)
     }
 
-    @IBAction func didPressLogin(sender: UIButton) {
+    @IBAction func didPressLogin(_ sender: UIButton) {
         let loginVC = CMHLoginViewController(title: NSLocalizedString("Login", comment: ""),
                                              text: NSLocalizedString("Please log in to you account to store and access your research data.", comment: ""),
                                              delegate: self)
@@ -66,12 +66,12 @@ extension OnboardingViewController {
 
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         guard presentedViewController == taskViewController else {
             return
         }
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
 
         guard case .Completed = reason else {
             return
@@ -85,17 +85,17 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
 extension OnboardingViewController: CMHLoginViewControllerDelegate {
 
-    func loginViewControllerCancelled(viewController: CMHLoginViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func loginViewControllerCancelled(_ viewController: CMHLoginViewController) {
+        dismiss(animated: true, completion: nil)
     }
 
-    func loginViewController(viewController: CMHLoginViewController, didLogin success: Bool, error: NSError?) {
+    func loginViewController(_ viewController: CMHLoginViewController, didLogin success: Bool, error: NSError?) {
         guard success else {
             alert(localizedMessage: NSLocalizedString("Sign In Failure", comment:""), inViewController: viewController, withError: error)
             return
         }
 
-        guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+        guard let appDelegate = UIApplication.shared().delegate as? AppDelegate else {
             fatalError("Unexpected App Delegate Class")
         }
 

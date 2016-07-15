@@ -36,7 +36,7 @@ class DashboardViewController: UIViewController, Observer {
 
 private extension DashboardViewController {
 
-    @IBAction func refreshDidPress(sender: UIButton) {
+    @IBAction func refreshDidPress(_ sender: UIButton) {
         mainPanel?.refresh()
     }
 }
@@ -45,15 +45,15 @@ private extension DashboardViewController {
 
 extension DashboardViewController: ORKPieChartViewDataSource {
 
-    func numberOfSegmentsInPieChartView(pieChartView: ORKPieChartView) -> Int {
+    func numberOfSegmentsInPieChartView(_ pieChartView: ORKPieChartView) -> Int {
         return 1
     }
 
-    func pieChartView(pieChartView: ORKPieChartView, valueForSegmentAtIndex index: Int) -> CGFloat {
+    func pieChartView(_ pieChartView: ORKPieChartView, valueForSegmentAtIndex index: Int) -> CGFloat {
         return 1.0
     }
 
-    func pieChartView(pieChartView: ORKPieChartView, titleForSegmentAtIndex index: Int) -> String {
+    func pieChartView(_ pieChartView: ORKPieChartView, titleForSegmentAtIndex index: Int) -> String {
         if pieChartView == aboutChart && hasCompletedAbout
             || pieChartView == dailyChart && hasCompletedDaily {
 
@@ -63,7 +63,7 @@ extension DashboardViewController: ORKPieChartViewDataSource {
         return NSLocalizedString("Incomplete", comment: "")
     }
 
-    func pieChartView(pieChartView: ORKPieChartView, colorForSegmentAtIndex index: Int) -> UIColor {
+    func pieChartView(_ pieChartView: ORKPieChartView, colorForSegmentAtIndex index: Int) -> UIColor {
         if pieChartView == aboutChart && hasCompletedAbout {
             return UIColor.acmOneTime()
         } else if pieChartView == dailyChart && hasCompletedDaily {

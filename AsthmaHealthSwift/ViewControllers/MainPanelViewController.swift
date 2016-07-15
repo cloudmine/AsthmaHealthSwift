@@ -20,7 +20,7 @@ class MainPanelViewController: UITabBarController {
 
 extension MainPanelViewController {
 
-    func upload(result result: ORKTaskResult) {
+    func upload(result: ORKTaskResult) {
         loadingOverlay?.show(loading: true)
 
         result.cmh_saveWithCompletion { (status, error) in

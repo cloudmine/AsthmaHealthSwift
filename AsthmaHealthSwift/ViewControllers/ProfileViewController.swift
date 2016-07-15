@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController {
 
 private extension ProfileViewController {
 
-    @IBAction func didPressLogOut(sender: UIButton) {
+    @IBAction func didPressLogOut(_ sender: UIButton) {
         CMHUser.currentUser().logoutWithCompletion { error in
             if let error = error {
                 alert(localizedMessage: NSLocalizedString("Error logging out", comment: ""), inViewController: self, withError: error)
@@ -56,21 +56,21 @@ private extension ProfileViewController {
         }
     }
 
-    @IBAction func didPressWeb(sender: UIButton) {
-        guard let cmURL = NSURL(string: "http://cloudmineinc.com") else {
+    @IBAction func didPressWeb(_ sender: UIButton) {
+        guard let cmURL = URL(string: "http://cloudmineinc.com") else {
             return
         }
 
-        UIApplication.sharedApplication().openURL(cmURL)
+        UIApplication.shared().openURL(cmURL)
     }
 
-    @IBAction func didPressEmail(sender: UIButton) {
+    @IBAction func didPressEmail(_ sender: UIButton) {
         guard let mailViewController = mailViewController else {
             alert(localizedMessage: NSLocalizedString("The mail app is not configured on your device.", comment: ""), inViewController: self)
             return
         }
 
-        presentViewController(mailViewController, animated: true, completion: nil)
+        present(mailViewController, animated: true, completion: nil)
     }
 }
 
@@ -78,7 +78,7 @@ private extension ProfileViewController {
 
 extension ProfileViewController {
 
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
         guard let user = object as? CMHUser,
             let keyPath = keyPath where keyPath == "userData",
             let userData = user.userData else {
@@ -93,19 +93,19 @@ extension ProfileViewController {
 
 extension ProfileViewController: MFMailComposeViewControllerDelegate {
 
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: NSError?) {
         guard let _ = presentedViewController as? MFMailComposeViewController else {
             return
         }
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
 
         guard nil == error else {
             alert(localizedMessage: NSLocalizedString("Error sending email", comment: ""), inViewController: self, withError: error)
             return
         }
 
-        if MFMailComposeResultSent == result {
+        if MFMailComposeResult.sent == result {
             alert(localizedMessage: "Thank you for your feedback!", inViewController: self)
         }
     }

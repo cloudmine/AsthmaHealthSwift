@@ -2,7 +2,7 @@
 protocol Observer: Equatable {}
 
 extension Observer {
-    func observe<T>(observable: Observable<T>?, block: (newValue: T) -> ()) {
+    func observe<T>(_ observable: Observable<T>?, block: (newValue: T) -> ()) {
         guard let observable = observable where !observable.has(observer: self) else {
             return
         }
@@ -10,7 +10,7 @@ extension Observer {
         observable.observers.append((self, block))
     }
 
-    func stopObserving<T>(observable: Observable<T>?) {
+    func stopObserving<T>(_ observable: Observable<T>?) {
         guard let observable = observable else {
             return
         }
@@ -44,7 +44,7 @@ final class Observable<T> {
     private typealias ObservablePair = (observer: Any, block: ObservableBlock)
     private var observers: [ObservablePair] = []
 
-    private func has<U:Observer>(observer observer: U) -> Bool {
+    private func has<U:Observer>(observer: U) -> Bool {
         for (obs, _) in observers {
             if let obs = obs as? U where obs == observer {
                 return true

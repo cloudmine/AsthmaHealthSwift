@@ -9,7 +9,7 @@ extension UIViewController {
     func removeNavigationBarDropShadow() {
         let navController: UINavigationController? = findParent(ofViewController: self)
 
-        navController?.navigationBar.setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
+        navController?.navigationBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         navController?.navigationBar.shadowImage = UIImage()
     }
 }
@@ -20,7 +20,7 @@ private func findParent<V: UIViewController>(ofViewController viewController: UI
         return typedViewController
     }
 
-    guard let parentViewController = viewController?.parentViewController else {
+    guard let parentViewController = viewController?.parent else {
         return nil
     }
 

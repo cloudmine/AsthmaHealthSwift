@@ -9,8 +9,8 @@ class ActivityCell: UITableViewCell {
 
     private static let QuestionWord = NSLocalizedString("Questions", comment: "")
 
-    override func willMoveToSuperview(newSuperview: UIView?) {
-        super.willMoveToSuperview(newSuperview)
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
 
         completionImage.layer.borderWidth = 1.0;
         completionImage.layer.cornerRadius = self.completionImage.bounds.size.height / 2.0;
@@ -21,22 +21,22 @@ class ActivityCell: UITableViewCell {
         questionCountLabel.text = "\(info.questionCount) \(ActivityCell.QuestionWord)"
         frequencyIndicator.backgroundColor = ActivityCell.color(forFrequency: info.frequency)
 
-        userInteractionEnabled = !isCompleted
+        isUserInteractionEnabled = !isCompleted
 
         if isCompleted {
-            completionImage.layer.borderColor = UIColor.clearColor().CGColor
+            completionImage.layer.borderColor = UIColor.clear().cgColor
             completionImage.image = UIImage(named: "CheckMark")
         } else {
-            completionImage.layer.borderColor = UIColor.lightGrayColor().CGColor
+            completionImage.layer.borderColor = UIColor.lightGray().cgColor
             completionImage.image = nil
         }
     }
 
     private static func color(forFrequency freq:SurveyFrequency) -> UIColor  {
         switch freq {
-        case .OneTime:
+        case .oneTime:
             return UIColor.acmOneTime()
-        case .Daily:
+        case .daily:
             return UIColor.acmDaily()
         }
     }
