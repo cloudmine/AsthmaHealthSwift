@@ -8,7 +8,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
 
-    private let mailViewController: MFMailComposeViewController? = {
+    fileprivate let mailViewController: MFMailComposeViewController? = {
         guard MFMailComposeViewController.canSendMail() else {
             return nil
         }
@@ -29,11 +29,11 @@ class ProfileViewController: UIViewController {
         emailLabel.text = ""
         mailViewController?.mailComposeDelegate = self
 
-        CMHUser.currentUser().addObserver(self, forKeyPath: "userData", options: NSKeyValueObservingOptions.Initial.union(.New), context: nil)
+        CMHUser.current().addObserver(self, forKeyPath: "userData", options: NSKeyValueObservingOptions.initial.union(.new), context: nil)
     }
 
     deinit {
-        CMHUser.currentUser().removeObserver(self, forKeyPath: "userData")
+        CMHUser.current().removeObserver(self, forKeyPath: "userData")
     }
 }
 
@@ -41,14 +41,14 @@ class ProfileViewController: UIViewController {
 
 private extension ProfileViewController {
 
-    @IBAction func didPressLogOut(sender: UIButton) {
-        CMHUser.currentUser().logoutWithCompletion { error in
+    @IBAction func didPressLogOut(_ sender: UIButton) {
+        CMHUser.current().logout { error in
             if let error = error {
-                alert(localizedMessage: NSLocalizedString("Error logging out", comment: ""), inViewController: self, withError: error)
+                alert(localizedMessage: NSLocalizedString("Error logging out", comment: ""), inViewController: self, withError: error as NSError?)
                 return
             }
 
-            guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 fatalError("Unexpected App Delegate Class")
             }
 
@@ -56,21 +56,21 @@ private extension ProfileViewController {
         }
     }
 
-    @IBAction func didPressWeb(sender: UIButton) {
-        guard let cmURL = NSURL(string: "http://cloudmineinc.com") else {
+    @IBAction func didPressWeb(_ sender: UIButton) {
+        guard let cmURL = URL(string: "http://cloudmineinc.com") else {
             return
         }
 
-        UIApplication.sharedApplication().openURL(cmURL)
+        UIApplication.shared.openURL(cmURL)
     }
 
-    @IBAction func didPressEmail(sender: UIButton) {
+    @IBAction func didPressEmail(_ sender: UIButton) {
         guard let mailViewController = mailViewController else {
             alert(localizedMessage: NSLocalizedString("The mail app is not configured on your device.", comment: ""), inViewController: self)
             return
         }
 
-        presentViewController(mailViewController, animated: true, completion: nil)
+        present(mailViewController, animated: true, completion: nil)
     }
 }
 
@@ -78,9 +78,9 @@ private extension ProfileViewController {
 
 extension ProfileViewController {
 
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let user = object as? CMHUser,
-            let keyPath = keyPath where keyPath == "userData",
+            let keyPath = keyPath , keyPath == "userData",
             let userData = user.userData else {
                 return
         }
@@ -93,19 +93,19 @@ extension ProfileViewController {
 
 extension ProfileViewController: MFMailComposeViewControllerDelegate {
 
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         guard let _ = presentedViewController as? MFMailComposeViewController else {
             return
         }
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
 
         guard nil == error else {
-            alert(localizedMessage: NSLocalizedString("Error sending email", comment: ""), inViewController: self, withError: error)
+            alert(localizedMessage: NSLocalizedString("Error sending email", comment: ""), inViewController: self, withError: error as NSError?)
             return
         }
 
-        if .Sent == result {
+        if .sent == result {
             alert(localizedMessage: "Thank you for your feedback!", inViewController: self)
         }
     }

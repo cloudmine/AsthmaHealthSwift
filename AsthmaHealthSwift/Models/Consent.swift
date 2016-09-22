@@ -31,7 +31,7 @@ private extension Consent {
     }
 
     static func reviewStep(document doc:ORKConsentDocument) -> ORKConsentReviewStep {
-        let step = ORKConsentReviewStep(identifier: "RevId", signature: doc.signatures?.first, inDocument: doc)
+        let step = ORKConsentReviewStep(identifier: "RevId", signature: doc.signatures?.first, in: doc)
         step.reasonForConsent = ConsentReason
         return step
     }
@@ -65,15 +65,15 @@ private extension Consent {
     }
 
     static var welcome: ORKConsentSection {
-        return section(withType: .Overview, title: nil, summary: WelcomeSummary, content: WelcomeContent)
+        return section(withType: .overview, title: nil, summary: WelcomeSummary, content: WelcomeContent)
     }
 
     static var test: ORKConsentSection {
-        return section(withType: .Custom, title: TestTitle, summary: TestSummary, content: TestContent)
+        return section(withType: .custom, title: TestTitle, summary: TestSummary, content: TestContent)
     }
 
     static var data: ORKConsentSection {
-        return section(withType: .DataGathering, title: nil, summary: DataSummary, content: DataContent)
+        return section(withType: .dataGathering, title: nil, summary: DataSummary, content: DataContent)
     }
 
     static func section(withType type:ORKConsentSectionType, title:String?, summary:String?, content:String?) -> ORKConsentSection {

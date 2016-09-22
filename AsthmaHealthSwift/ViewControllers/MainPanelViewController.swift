@@ -5,8 +5,8 @@ typealias SurveyResults = (about: ORKTaskResult?, daily: [ORKTaskResult])
 
 class MainPanelViewController: UITabBarController {
 
-    private(set) var results: Observable<SurveyResults> = Observable((about: nil, daily: []))
-    private var loadingOverlay: LoadingOverlay? = nil
+    fileprivate(set) var results: Observable<SurveyResults> = Observable((about: nil, daily: []))
+    fileprivate var loadingOverlay: LoadingOverlay? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,14 @@ class MainPanelViewController: UITabBarController {
 
 extension MainPanelViewController {
 
-    func upload(result result: ORKTaskResult) {
+    func upload(result: ORKTaskResult) {
         loadingOverlay?.show(loading: true)
 
-        result.cmh_saveWithCompletion { (status, error) in
+        result.cmh_save { (status, error) in
             self.loadingOverlay?.show(loading: false)
             
             guard let _ = status else {
-                alert(localizedMessage: NSLocalizedString( "Failed to submit survey results", comment: ""), inViewController: self, withError: error)
+                alert(localizedMessage: NSLocalizedString( "Failed to submit survey results", comment: ""), inViewController: self, withError: error as NSError?)
                 return
             }
 
@@ -38,18 +38,18 @@ extension MainPanelViewController {
     func refresh() {
         loadingOverlay?.show(loading: true)
 
-        ORKTaskResult.cmh_fetchUserResultsForStudyWithIdentifier(Survey.Daily.info.rkIdentifier) { (dailyResults, dailyError) in
+        ORKTaskResult.cmh_fetchUserResultsForStudy(withIdentifier: Survey.Daily.info.rkIdentifier) { (dailyResults, dailyError) in
             guard let dailyResults = dailyResults as? [ORKTaskResult] else {
                 self.loadingOverlay?.show(loading: false)
-                alert(localizedMessage: NSLocalizedString("Error fetching past daily results", comment: ""), inViewController: self, withError: dailyError)
+                alert(localizedMessage: NSLocalizedString("Error fetching past daily results", comment: ""), inViewController: self, withError: dailyError as NSError?)
                 return
             }
 
-            ORKTaskResult.cmh_fetchUserResultsForStudyWithIdentifier(Survey.About.info.rkIdentifier) { (aboutResults, aboutError) in
+            ORKTaskResult.cmh_fetchUserResultsForStudy(withIdentifier: Survey.About.info.rkIdentifier) { (aboutResults, aboutError) in
                 self.loadingOverlay?.show(loading: false)
 
                 guard let aboutResults = aboutResults as? [ORKTaskResult] else {
-                    alert(localizedMessage: NSLocalizedString("Error fetching about results", comment: ""), inViewController: self, withError: aboutError)
+                    alert(localizedMessage: NSLocalizedString("Error fetching about results", comment: ""), inViewController: self, withError: aboutError as NSError?)
                     return
                 }
 

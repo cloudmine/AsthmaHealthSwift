@@ -4,7 +4,7 @@ import CMHealth
 class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var joinButton: UIButton!
-    private var consentResult: ORKTaskResult? = nil
+    fileprivate var consentResult: ORKTaskResult? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,20 +17,20 @@ class OnboardingViewController: UIViewController {
 // MARK: Private
 extension OnboardingViewController {
 
-    private func signup(email email: String, password: String) {
-        CMHUser.currentUser().signUpWithEmail(email, password: password) { signupError in
+    fileprivate func signup(email: String, password: String) {
+        CMHUser.current().signUp(withEmail: email, password: password) { signupError in
             if let signupError = signupError {
-                alert(localizedMessage: NSLocalizedString("Error during signup", comment: ""), inViewController: self, withError: signupError)
+                alert(localizedMessage: NSLocalizedString("Error during signup", comment: ""), inViewController: self, withError: signupError as NSError?)
                 return
             }
 
-            CMHUser.currentUser().uploadUserConsent(self.consentResult, withCompletion: { (consent, uploadError) in
+            CMHUser.current().uploadUserConsent(self.consentResult, withCompletion: { (consent, uploadError) in
                 guard let _ = consent else {
-                    alert(localizedMessage: NSLocalizedString("Error during signup while uploading consent", comment: ""), inViewController: self, withError: uploadError)
+                    alert(localizedMessage: NSLocalizedString("Error during signup while uploading consent", comment: ""), inViewController: self, withError: uploadError as NSError?)
                     return
                 }
 
-                guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                     fatalError("Unexpected App Delegate Class")
                 }
 
@@ -39,14 +39,14 @@ extension OnboardingViewController {
         }
     }
 
-    private func login(email email: String, password: String) {
-        CMHUser.currentUser().loginWithEmail(email, password: password) { error in
+    fileprivate func login(email: String, password: String) {
+        CMHUser.current().login(withEmail: email, password: password) { error in
             if let error = error {
-                alert(localizedMessage: NSLocalizedString("Error logging in", comment: ""), inViewController: self.presentedViewController, withError: error)
+                alert(localizedMessage: NSLocalizedString("Error logging in", comment: ""), inViewController: self.presentedViewController, withError: error as NSError?)
                 return
             }
 
-            guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 fatalError("Unexpected App Delegate Class")
             }
 
@@ -59,18 +59,18 @@ extension OnboardingViewController {
 
 extension OnboardingViewController {
 
-    @IBAction func didPressJoin(sender: UIButton) {
+    @IBAction func didPressJoin(_ sender: UIButton) {
         let consentVC = ORKTaskViewController(task: Consent.Task, restorationData: nil, delegate: self)
         consentVC.view.tintColor = UIColor.acmBlue()
 
-        presentViewController(consentVC, animated: true, completion: nil)
+        present(consentVC, animated: true, completion: nil)
     }
 
-    @IBAction func didPressLogin(sender: UIButton) {
-        let loginVC = CMHAuthViewController.loginViewController()
+    @IBAction func didPressLogin(_ sender: UIButton) {
+        let loginVC = CMHAuthViewController.login()
         loginVC.delegate = self
 
-        presentViewController(loginVC, animated: true, completion: nil)
+        present(loginVC, animated: true, completion: nil)
     }
 }
 
@@ -78,21 +78,21 @@ extension OnboardingViewController {
 
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         guard presentedViewController == taskViewController else {
             return
         }
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
 
-        guard case .Completed = reason else {
+        guard case .completed = reason else {
             return
         }
 
         consentResult = taskViewController.result
-        let signupVC = CMHAuthViewController.signupViewController()
+        let signupVC = CMHAuthViewController.signup()
         signupVC.delegate = self
-        presentViewController(signupVC, animated: true, completion: nil)
+        present(signupVC, animated: true, completion: nil)
     }
 }
 
@@ -100,20 +100,20 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
 
 extension OnboardingViewController: CMHAuthViewDelegate {
 
-    func authViewOfType(authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
+    func authView(of authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
         switch authType {
-        case .Signup:
+        case .signup:
             signup(email: email, password: password)
-        case .Login:
+        case .login:
             login(email: email, password: password)
         }
     }
 
-    func authViewCancelledType(authType: CMHAuthType) {
+    func authViewCancelledType(_ authType: CMHAuthType) {
         guard let _ = presentedViewController as? CMHAuthViewController else {
             return
         }
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
