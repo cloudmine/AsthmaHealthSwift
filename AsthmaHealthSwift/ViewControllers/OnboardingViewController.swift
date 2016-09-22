@@ -67,10 +67,32 @@ extension OnboardingViewController {
     }
 
     @IBAction func didPressLogin(_ sender: UIButton) {
-        let loginVC = CMHAuthViewController.login()
-        loginVC.delegate = self
+        let loginVC = CMHLoginViewController(title: NSLocalizedString("Log In", comment: ""),
+                                             text: NSLocalizedString("lease log in to you account to store and access your research data.", comment: ""),
+                                             delegate: self)
+        loginVC.view.tintColor = UIColor.acmBlue()
 
         present(loginVC, animated: true, completion: nil)
+    }
+}
+
+// MARK: CMHLoginViewControllerDelegate
+
+extension OnboardingViewController: CMHLoginViewControllerDelegate {
+
+    func loginViewControllerCancelled(_ viewController: CMHLoginViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func loginViewController(_ viewController: CMHLoginViewController, didLogin success: Bool, error: Error?) {
+        if !success {
+            alert(localizedMessage: NSLocalizedString("Something went wrong logging in", comment: ""),
+                  inViewController: self.presentedViewController,
+                  withError: error)
+            return
+        }
+
+        appDelegate.loadMainPanel()
     }
 }
 
@@ -90,30 +112,30 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         }
 
         consentResult = taskViewController.result
-        let signupVC = CMHAuthViewController.signup()
-        signupVC.delegate = self
-        present(signupVC, animated: true, completion: nil)
+//        let signupVC = CMHAuthViewController.signup()
+//        signupVC.delegate = self
+//        present(signupVC, animated: true, completion: nil)
     }
 }
 
 // MARK: CMHAuthViewDelegate
-
-extension OnboardingViewController: CMHAuthViewDelegate {
-
-    func authView(of authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
-        switch authType {
-        case .signup:
-            signup(email: email, password: password)
-        case .login:
-            login(email: email, password: password)
-        }
-    }
-
-    func authViewCancelledType(_ authType: CMHAuthType) {
-        guard let _ = presentedViewController as? CMHAuthViewController else {
-            return
-        }
-
-        dismiss(animated: true, completion: nil)
-    }
-}
+//
+//extension OnboardingViewController: CMHAuthViewDelegate {
+//
+//    func authView(of authType: CMHAuthType, didSubmitWithEmail email: String, andPassword password: String) {
+//        switch authType {
+//        case .signup:
+//            signup(email: email, password: password)
+//        case .login:
+//            login(email: email, password: password)
+//        }
+//    }
+//
+//    func authViewCancelledType(_ authType: CMHAuthType) {
+//        guard let _ = presentedViewController as? CMHAuthViewController else {
+//            return
+//        }
+//
+//        dismiss(animated: true, completion: nil)
+//    }
+//}

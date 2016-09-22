@@ -2,6 +2,14 @@ import UIKit
 
 extension UIViewController {
 
+    var appDelegate: AppDelegate {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Unexpected App Delegate Class")
+        }
+
+        return appDelegate
+    }
+
     var mainPanel: MainPanelViewController? {
         return findParent(ofViewController: self)
     }
