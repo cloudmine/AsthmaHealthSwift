@@ -1,4 +1,5 @@
 import CMHealth
+import ResearchKit
 
 // MARK: Public
 
@@ -16,7 +17,7 @@ struct Consent {
 private extension Consent {
 
     static func steps(document doc:ORKConsentDocument) -> [ORKStep] {
-        return [visualStep(document: doc), sharingStep(), reviewStep(document: doc)]
+        return [visualStep(document: doc), sharingStep(), reviewStep(document: doc), registrationStep()]
     }
 
     static func visualStep(document doc:ORKConsentDocument) -> ORKVisualConsentStep {
@@ -34,6 +35,15 @@ private extension Consent {
         let step = ORKConsentReviewStep(identifier: "RevId", signature: doc.signatures?.first, in: doc)
         step.reasonForConsent = ConsentReason
         return step
+    }
+
+    static func registrationStep() -> ORKRegistrationStep {
+        let options = ORKRegistrationStepOption.includeGivenName.union(.includeFamilyName).union(.includeGender).union(.includeDOB)
+
+        return ORKRegistrationStep(identifier: "ACMParticipantRegistrationStep",
+                                   title: NSLocalizedString("Registration", comment: ""),
+                                   text: NSLocalizedString("Create an account", comment: ""),
+                                   options: options)
     }
 }
 
