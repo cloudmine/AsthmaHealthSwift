@@ -27,7 +27,7 @@ extension MainPanelViewController {
             self.loadingOverlay?.show(loading: false)
             
             guard let _ = status else {
-                alert(localizedMessage: NSLocalizedString( "Failed to submit survey results", comment: ""), inViewController: self, withError: error as NSError?)
+                alert(localizedMessage: NSLocalizedString( "Failed to submit survey results", comment: ""), inViewController: self, withError: error)
                 return
             }
 
@@ -41,7 +41,7 @@ extension MainPanelViewController {
         ORKTaskResult.cmh_fetchUserResultsForStudy(withIdentifier: Survey.Daily.info.rkIdentifier) { (dailyResults, dailyError) in
             guard let dailyResults = dailyResults as? [ORKTaskResult] else {
                 self.loadingOverlay?.show(loading: false)
-                alert(localizedMessage: NSLocalizedString("Error fetching past daily results", comment: ""), inViewController: self, withError: dailyError as NSError?)
+                alert(localizedMessage: NSLocalizedString("Error fetching past daily results", comment: ""), inViewController: self, withError: dailyError)
                 return
             }
 

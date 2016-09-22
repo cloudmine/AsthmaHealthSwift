@@ -44,7 +44,7 @@ private extension ProfileViewController {
     @IBAction func didPressLogOut(_ sender: UIButton) {
         CMHUser.current().logout { error in
             if let error = error {
-                alert(localizedMessage: NSLocalizedString("Error logging out", comment: ""), inViewController: self, withError: error as NSError?)
+                alert(localizedMessage: NSLocalizedString("Error logging out", comment: ""), inViewController: self, withError: error)
                 return
             }
 
@@ -101,7 +101,7 @@ extension ProfileViewController: MFMailComposeViewControllerDelegate {
         dismiss(animated: true, completion: nil)
 
         guard nil == error else {
-            alert(localizedMessage: NSLocalizedString("Error sending email", comment: ""), inViewController: self, withError: error as NSError?)
+            alert(localizedMessage: NSLocalizedString("Error sending email", comment: ""), inViewController: self, withError: error)
             return
         }
 

@@ -11,7 +11,7 @@ func onMainThread(_ block: @escaping ()->()) {
     }
 }
 
-func alert(localizedMessage message: String, inViewController viewController: UIViewController?, withError error: NSError? = nil) {
+func alert(localizedMessage message: String, inViewController viewController: UIViewController?, withError error: Error? = nil) {
     var message = message
     
     if let errorMessage = error?.localizedDescription {
