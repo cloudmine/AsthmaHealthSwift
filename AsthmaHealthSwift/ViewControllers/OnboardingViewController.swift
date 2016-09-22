@@ -42,7 +42,7 @@ extension OnboardingViewController {
     private func login(email email: String, password: String) {
         CMHUser.currentUser().loginWithEmail(email, password: password) { error in
             if let error = error {
-                alert(localizedMessage: NSLocalizedString("Error logging in", comment: ""), inViewController: self, withError: error)
+                alert(localizedMessage: NSLocalizedString("Error logging in", comment: ""), inViewController: self.presentedViewController, withError: error)
                 return
             }
 

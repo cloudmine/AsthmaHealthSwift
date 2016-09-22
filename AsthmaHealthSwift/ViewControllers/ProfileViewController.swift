@@ -105,7 +105,7 @@ extension ProfileViewController: MFMailComposeViewControllerDelegate {
             return
         }
 
-        if MFMailComposeResultSent == result {
+        if .Sent == result {
             alert(localizedMessage: "Thank you for your feedback!", inViewController: self)
         }
     }
