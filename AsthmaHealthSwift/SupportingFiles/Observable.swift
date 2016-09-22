@@ -55,7 +55,7 @@ final class Observable<T> {
     }
 }
 
-infix operator <- { associativity right precedence 90 }
+infix operator <- : AssignmentPrecedence
 
 func <-<T>(lhs: Observable<T>, rhs: T) {
     lhs.value = rhs
