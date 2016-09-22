@@ -21,7 +21,7 @@ struct Survey {
 
         static let info: SurveyInfo = SurveyInfo(displayName: NSLocalizedString("About You", comment: ""),
                                                  rkIdentifier: "ACMAboutYouSurveyTask",
-                                                 frequency: .OneTime,
+                                                 frequency: .oneTime,
                                                  questionCount: 8)
     }
 
@@ -29,7 +29,7 @@ struct Survey {
 
         static let info: SurveyInfo = SurveyInfo(displayName: NSLocalizedString("Daily Survey", comment: ""),
                                                    rkIdentifier: "ACMDailySurveyTask",
-                                                   frequency: .Daily,
+                                                   frequency: .daily,
                                                    questionCount: 8)
     }
 }
@@ -40,11 +40,11 @@ private extension Survey {
 
     static func textQuestion(withTitle title: String, surveyId sId: String, questionId qId: String, choiceInfo: [TextQuestionChoice]) -> ORKQuestionStep  {
         let choices = choiceInfo.map { choice in
-            ORKTextChoice(text: choice.text, detailText: nil, value: "ACM\(qId)\(choice.keyword)Choice", exclusive: choice.exclusive)
+            ORKTextChoice(text: choice.text, detailText: nil, value: "ACM\(qId)\(choice.keyword)Choice" as NSCoding & NSCopying & NSObjectProtocol, exclusive: choice.exclusive)
         }
 
         let allExclusive = choiceInfo.reduce(true) { (acc, info) in acc && info.exclusive }
-        let style = allExclusive ? ORKChoiceAnswerStyle.SingleChoice : .MultipleChoice
+        let style = allExclusive ? ORKChoiceAnswerStyle.singleChoice : .multipleChoice
 
         let format = ORKTextChoiceAnswerFormat(style: style, textChoices: choices)
         return ORKQuestionStep(identifier: "ACM\(sId)Survey\(qId)Question", title: title, text: nil, answer: format)
@@ -59,7 +59,7 @@ private extension Survey.About {
         let task =  ORKNavigableOrderedTask(identifier: info.rkIdentifier, steps: steps)
 
         let smokingStatus = ORKResultSelector(resultIdentifier: "ACMAboutYouSurveySmokingQuestion")
-        let notSmokePredicate = ORKResultPredicate.predicateForChoiceQuestionResultWithResultSelector(smokingStatus, expectedAnswerValues: ["ACMSmokingNeverChoice"])
+        let notSmokePredicate = ORKResultPredicate.predicateForChoiceQuestionResult(with: smokingStatus, expectedAnswerValues: ["ACMSmokingNeverChoice" as NSCoding & NSCopying & NSObjectProtocol])
         let predicateRule = ORKPredicateStepNavigationRule(resultPredicates: [notSmokePredicate],
                                                            destinationStepIdentifiers: ["ACMAboutYouSurveyInsuranceQuestion"],
                                                            defaultStepIdentifier: nil,
@@ -95,7 +95,7 @@ private extension Survey.About {
     }
 
     static var cigarettesQuestion: ORKQuestionStep {
-        let format = ORKNumericAnswerFormat(style: .Integer, unit: NSLocalizedString("Cigarettes", comment: ""), minimum: 1, maximum: 200)
+        let format = ORKNumericAnswerFormat(style: .integer, unit: NSLocalizedString("Cigarettes", comment: ""), minimum: 1, maximum: 200)
 
         return ORKQuestionStep(identifier: "ACMAboutYouSurveyCigarettesQuestion",
                                title: NSLocalizedString("On average, how many cigarettes per day did you smoke daily?", comment: ""),
@@ -103,7 +103,7 @@ private extension Survey.About {
     }
 
     static var yearsQuestion: ORKQuestionStep {
-        let format = ORKNumericAnswerFormat(style: .Integer, unit: NSLocalizedString("Years", comment: ""), minimum: 0, maximum: 100)
+        let format = ORKNumericAnswerFormat(style: .integer, unit: NSLocalizedString("Years", comment: ""), minimum: 0, maximum: 100)
 
         return ORKQuestionStep(identifier: "ACMAboutYouSurveyYearsSmokingQuestion",
                                title: NSLocalizedString("How many years in total did you smoke?", comment: ""),
@@ -222,7 +222,7 @@ private extension Survey.Daily {
     }
 
     static var puffsQuestion: ORKQuestionStep {
-        let format = ORKNumericAnswerFormat(style: .Integer, unit: NSLocalizedString("Puffs", comment: ""), minimum: 0, maximum: 20)
+        let format = ORKNumericAnswerFormat(style: .integer, unit: NSLocalizedString("Puffs", comment: ""), minimum: 0, maximum: 20)
 
         return ORKQuestionStep(identifier: "ACMDailyPuffsQuestion",
                                title: NSLocalizedString("Except for use before exercise, how many total puffs of your quick relief medicine did you take over the past 24 hours?", comment: ""),
@@ -235,7 +235,7 @@ private extension Survey.Daily {
     }
 
     static var flowQuestion: ORKQuestionStep {
-        let format = ORKNumericAnswerFormat(style: .Integer, unit: NSLocalizedString("L/min", comment: ""), minimum: 60, maximum: 900)
+        let format = ORKNumericAnswerFormat(style: .integer, unit: NSLocalizedString("L/min", comment: ""), minimum: 60, maximum: 900)
 
         return ORKQuestionStep(identifier: "ACMDailyPeaksQuestion",
                                title: NSLocalizedString("Enter your peak flow today? (L/min)", comment: ""),

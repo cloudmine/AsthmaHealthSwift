@@ -2,8 +2,8 @@ import UIKit
 
 extension UIButton {
 
-    func setBorder(width width: CGFloat, cornerRadius radius: CGFloat) {
-        layer.borderColor = titleLabel?.textColor?.CGColor
+    func setBorder(width: CGFloat, cornerRadius radius: CGFloat) {
+        layer.borderColor = titleLabel?.textColor?.cgColor
         layer.borderWidth = width
         layer.cornerRadius = radius
     }

@@ -1,25 +1,25 @@
 import UIKit
 
-func onMainThread(block: ()->()) {
-    if NSOperationQueue.currentQueue() == NSOperationQueue.mainQueue() {
+func onMainThread(_ block: @escaping ()->()) {
+    if OperationQueue.current == OperationQueue.main {
         block()
         return
     }
 
-    dispatch_async(dispatch_get_main_queue()) {
+    DispatchQueue.main.async {
         block()
     }
 }
 
-func alert(localizedMessage message: String, inViewController viewController: UIViewController?, withError error: NSError? = nil) {
+func alert(localizedMessage message: String, inViewController viewController: UIViewController?, withError error: Error? = nil) {
     var message = message
     
     if let errorMessage = error?.localizedDescription {
         message = "\(message); \(errorMessage)"
     }
 
-    let alert = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
-    let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil)
+    let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+    let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
     alert.addAction(okAction)
 
     guard let viewController = viewController else {
@@ -28,6 +28,6 @@ func alert(localizedMessage message: String, inViewController viewController: UI
     }
 
     onMainThread {
-        viewController.presentViewController(alert, animated: true, completion: nil)
+        viewController.present(alert, animated: true, completion: nil)
     }
 }
