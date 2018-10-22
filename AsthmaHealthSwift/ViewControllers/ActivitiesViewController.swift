@@ -3,13 +3,13 @@ import ResearchKit
 
 class ActivitiesViewController: UITableViewController, Observer {
 
-    private let surveys = [Survey.About.info, Survey.Daily.info]
+    fileprivate let surveys = [Survey.About.info, Survey.Daily.info]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let refresher = UIRefreshControl()
-        refresher.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+        refresher.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refresher)
 
         observe(mainPanel?.results) { _ in
@@ -28,7 +28,7 @@ class ActivitiesViewController: UITableViewController, Observer {
 
 extension ActivitiesViewController {
 
-    func refresh(control: UIRefreshControl) {
+    @objc func refresh(_ control: UIRefreshControl) {
         mainPanel?.refresh()
         control.endRefreshing()
     }
@@ -38,18 +38,19 @@ extension ActivitiesViewController {
 
 extension ActivitiesViewController {
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return surveys.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath)
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ActivityCell", forIndexPath: indexPath)
-
-        guard let activityCell = cell as? ActivityCell where indexPath.row <= surveys.count else {
+        guard let activityCell = cell as? ActivityCell, indexPath.row <= surveys.count else {
             return cell
         }
 
@@ -59,7 +60,7 @@ extension ActivitiesViewController {
         return activityCell
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72.0
     }
 }
@@ -68,34 +69,34 @@ extension ActivitiesViewController {
 
 extension ActivitiesViewController {
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row <= surveys.count,
             let task = Survey.task(forInfo: surveys[indexPath.row]) else {
             return
         }
 
         let surveyVC = ORKTaskViewController(task: task, restorationData: nil, delegate: self)
-        presentViewController(surveyVC, animated: true, completion: nil)
+        present(surveyVC, animated: true, completion: nil)
     }
 }
 
 // MARK: ORKTaskViewControllerDelegate
 
 extension ActivitiesViewController: ORKTaskViewControllerDelegate {
-
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        
         guard presentedViewController == taskViewController else {
             return
         }
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
 
         guard nil == error else {
             alert(localizedMessage: NSLocalizedString( "Error completing survey", comment: ""), inViewController: self, withError: error)
             return
         }
 
-        guard case .Completed = reason else {
+        guard case .completed = reason else {
             return
         }
 
@@ -109,9 +110,9 @@ private extension ActivitiesViewController {
 
     func hasCompleted(surveyWithInfo info: SurveyInfo) -> Bool {
         switch info.frequency {
-        case .OneTime:
+        case .oneTime:
             return hasCompletedAboutYou()
-        case .Daily:
+        case .daily:
             return hasCompletedDailyToday()
         }
     }

@@ -16,7 +16,7 @@ struct Consent {
 private extension Consent {
 
     static func steps(document doc:ORKConsentDocument) -> [ORKStep] {
-        return [visualStep(document: doc), sharingStep(), reviewStep(document: doc)]
+        return [visualStep(document: doc), sharingStep(), reviewStep(document: doc), registrationStep()]
     }
 
     static func visualStep(document doc:ORKConsentDocument) -> ORKVisualConsentStep {
@@ -31,9 +31,18 @@ private extension Consent {
     }
 
     static func reviewStep(document doc:ORKConsentDocument) -> ORKConsentReviewStep {
-        let step = ORKConsentReviewStep(identifier: "RevId", signature: doc.signatures?.first, inDocument: doc)
+        let step = ORKConsentReviewStep(identifier: "RevId", signature: doc.signatures?.first, in: doc)
         step.reasonForConsent = ConsentReason
         return step
+    }
+    
+    static func registrationStep() -> ORKRegistrationStep {
+        let options = ORKRegistrationStepOption.includeGivenName.union(.includeFamilyName).union(.includeGender).union(.includeDOB)
+        
+        return ORKRegistrationStep(identifier: "ACMParticipantRegistrationStep",
+                                   title: NSLocalizedString("Registration", comment: ""),
+                                   text: NSLocalizedString("Create an account", comment: ""),
+                                   options: options)
     }
 }
 
@@ -65,15 +74,15 @@ private extension Consent {
     }
 
     static var welcome: ORKConsentSection {
-        return section(withType: .Overview, title: nil, summary: WelcomeSummary, content: WelcomeContent)
+        return section(withType: .overview, title: nil, summary: WelcomeSummary, content: WelcomeContent)
     }
 
     static var test: ORKConsentSection {
-        return section(withType: .Custom, title: TestTitle, summary: TestSummary, content: TestContent)
+        return section(withType: .custom, title: TestTitle, summary: TestSummary, content: TestContent)
     }
 
     static var data: ORKConsentSection {
-        return section(withType: .DataGathering, title: nil, summary: DataSummary, content: DataContent)
+        return section(withType: .dataGathering, title: nil, summary: DataSummary, content: DataContent)
     }
 
     static func section(withType type:ORKConsentSectionType, title:String?, summary:String?, content:String?) -> ORKConsentSection {

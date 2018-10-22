@@ -9,22 +9,22 @@ class LoadingOverlay: UIView {
     init(overView otherView: UIView) {
         super.init(frame: otherView.frame)
 
-        backgroundColor = UIColor.blackColor()
+        backgroundColor = UIColor.black
         alpha = 0.2
-
-        let indicatorFrame = CGRectMake(otherView.center.x - 37.0/2.0, otherView.center.y - 37.0/2.0, 37.0, 37.0)
+        
+        let indicatorFrame = CGRect(x: otherView.center.x - 37.0/2.0, y: otherView.center.y - 37.0/2.0, width: 37.0, height: 37.0)
         let indicator = UIActivityIndicatorView(frame: indicatorFrame)
-        indicator.activityIndicatorViewStyle = .WhiteLarge
+        indicator.style = .whiteLarge
         indicator.startAnimating()
         addSubview(indicator)
 
-        self.hidden = true
+        self.isHidden = true
         otherView.addSubview(self)
     }
 
     func show(loading shouldShow:Bool) {
         onMainThread {
-            self.hidden = !shouldShow
+            self.isHidden = !shouldShow
         }
     }
 }

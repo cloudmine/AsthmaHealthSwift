@@ -20,20 +20,27 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CloudMine (1.7.11):
+  - CareKit (1.2.1)
+  - CloudMine (1.7.16):
     - AFNetworking (~> 2.6.3)
-    - CloudMine/no-arc (= 1.7.11)
-  - CloudMine/no-arc (1.7.11):
+    - CloudMine/no-arc (= 1.7.16)
+  - CloudMine/no-arc (1.7.16):
     - AFNetworking (~> 2.6.3)
-  - CMHealth (0.3.0):
-    - CloudMine (~> 1.7)
-    - ResearchKit (~> 1.3.1)
-    - TPKeyboardAvoiding (~> 1.2)
-  - ResearchKit (1.3.1)
-  - TPKeyboardAvoiding (1.3)
+  - CMHealth (0.6.0):
+    - CareKit (~> 1.2)
+    - CloudMine (~> 1.7.16)
+    - ResearchKit (~> 1.3)
+  - ResearchKit (1.5.2)
 
 DEPENDENCIES:
   - CMHealth (from `https://github.com/cloudmine/CMHealthSDK-iOS`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - CareKit
+    - CloudMine
+    - ResearchKit
 
 EXTERNAL SOURCES:
   CMHealth:
@@ -41,16 +48,16 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CMHealth:
-    :commit: e93830dbffeb44cb572e98e8e2d8acd6d2afb759
+    :commit: 6f2c0f18bda408135fc90c8f07bec0ba77685b75
     :git: https://github.com/cloudmine/CMHealthSDK-iOS
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  CloudMine: ee5b3643fb1a2f4603de6428aea1252ac928d98d
-  CMHealth: 7a40693d7bea5f9f1c45734484917a415b226e51
-  ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
-  TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
+  CareKit: aa0c8a57c1a2d7cfb46ff3981fe1503f02ca302e
+  CloudMine: aa3a609ab22eec132ff446839da0f97072d6b4ec
+  CMHealth: 32b5fc2959fbfcd69c33cac5f8d3a43967d60b34
+  ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
 
-PODFILE CHECKSUM: 851a6ccabf42b0ca47ce7ff3f6cd487905dc03b7
+PODFILE CHECKSUM: 187b54f8efe7a589376081f8b334fcb1c1c0b17d
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.5.3

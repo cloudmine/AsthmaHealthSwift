@@ -1,7 +1,7 @@
 import Foundation
 
 enum SurveyFrequency {
-    case OneTime, Daily
+    case oneTime, daily
 }
 
 struct SurveyInfo {
